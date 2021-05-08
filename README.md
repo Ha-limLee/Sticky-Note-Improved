@@ -16,7 +16,7 @@ npm start # Start Application
 ├─ app
 │  ├─ out : 번들링 결과 (npm run build 결과)
 │  ├─ renderer : 렌더러 프로세스 (번들링 이전)
-│  ├─ ?? : 메인 프로세스
+│  └─ ?? : 메인 프로세스
 ├─ docs : 문서 관련 자료 디렉토리
 └─ main.js : 프로그램 진입점 (package.json 에서 정의)
 ```
