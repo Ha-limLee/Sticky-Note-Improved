@@ -1,0 +1,8 @@
+.logo {
+    &.common {
+        color: $logo_color_common;
+        font: {
+            size: $logo_size_common;
+        }
+    }
+}

@@ -5,6 +5,7 @@ export default class App extends Component {
   render () {
     return (
       <div>
+        <p className='logo common'>Sticky Note</p>
         <h1>Hello World!</h1>
         <p>
           We are using Node.js <span id='node-version' />,
