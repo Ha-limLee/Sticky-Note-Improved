@@ -22,6 +22,9 @@ npm start # Start Application
 ```
 
 ## 프로토타입
+[Figma](https://www.figma.com/proto/5ZyfEqvnN36g2hPs7rle0u/Advanced-Sticky-Note?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
+
+### 이전 버전
 Default  
 ![default](./docs/assets/README.md/default.png)  
 
