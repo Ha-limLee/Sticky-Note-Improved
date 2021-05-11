@@ -1,0 +1,17 @@
+$logo_color_common: #8B8B8B !default;
+$logo_size_common: 14px;
+$page_title_size_common: 18px;
+$dark_gray__text: #656565;
+$normal_gray: #dcdcdc;
+$light_gray: #f6f6f6;
+
+@mixin default-root-div {
+    margin: auto;
+    max-width: 350px;
+}
+@mixin default-text {
+    color: $dark_gray__text;
+    font: {
+        size: 13px;
+    }
+}

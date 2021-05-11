@@ -7,6 +7,13 @@ npm install
 
 ## 프로젝트 실행
 ```bash
+start.bat    # Windows Command Prompt
+sh start.bat # macOS, Linux
+```
+
+혹은 아래 명령어를 직접 입력하여 실행할 수도 있습니다.  
+[start.bat](./start.bat)
+```bash
 npm run build # Build Frontend
 npm start # Start Application
 ```
