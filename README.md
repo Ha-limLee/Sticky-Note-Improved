@@ -1,14 +1,6 @@
 # Sticky-Note-Improved
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
-**ShapeLayer/sticky-note-improved**
-```
-──┬─ main : 표시 브랜치 (현재)
-  │         ShapeLayer/sticky-note-improved 레포용 문서 포함
-  └┬─ main-pr : 메인 브랜치 (일부 문서 제외)
-   └─ dev : 개발 브랜치 
-```
-
 ## 라이브러리 설치
 ```bash
 npm install
