@@ -2,6 +2,75 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./app/renderer/components/Header.js":
+/*!*******************************************!*\
+  !*** ./app/renderer/components/Header.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Header)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+class Header extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "header"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "left"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      className: "logo common"
+    }, "Sticky Note"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+      className: "page_title"
+    }, this.props.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "right user"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "userprofile"
+    })));
+  }
+
+}
+
+/***/ }),
+
+/***/ "./app/renderer/components/lobby/NoteIndex.js":
+/*!****************************************************!*\
+  !*** ./app/renderer/components/lobby/NoteIndex.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NoteIndex)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+class NoteIndex extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "note_index"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(NoteFrame, {
+      summary: "Lorem ipsum"
+    }));
+  }
+
+}
+
+class NoteFrame extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "note_frame"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+      className: "contents summary"
+    }, this.props.summary));
+  }
+
+}
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -7957,7 +8026,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".logo.common {\n  color: #8B8B8B;\n  font-size: 14px; }\n\nbody {\n  color: red; }\n", "",{"version":3,"sources":["webpack://./app/sass/sticky-note/header.scss","webpack://./app/sass/sticky-note/colors.scss","webpack://./app/sass/main.scss"],"names":[],"mappings":"AAAA;EAEQ,cCFmB;EDIf,eCHW,EAAA;;ACCvB;EACI,UAAU,EAAA","sourcesContent":[".logo {\n    &.common {\n        color: $logo_color_common;\n        font: {\n            size: $logo_size_common;\n        }\n    }\n}","$logo_color_common: #8B8B8B !default;\n$logo_size_common: 14px;","@import 'sticky-note/colors.scss';\n@import 'sticky-note/header.scss';\nbody {\n    color: red;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0; }\n\n.header {\n  margin: auto;\n  max-width: 350px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center; }\n  .header .left * {\n    margin-bottom: 0; }\n  .header .logo.common {\n    color: #8B8B8B;\n    font-size: 14px; }\n  .header h1.page_title {\n    margin-top: 0.3em;\n    font-size: 18px;\n    font-weight: bold; }\n  .header .userprofile {\n    width: 28px;\n    height: 28px;\n    border-radius: 14px;\n    background-color: #dcdcdc; }\n\n.note_index {\n  margin: auto;\n  max-width: 350px; }\n", "",{"version":3,"sources":["webpack://./app/sass/sticky-note/base.scss","webpack://./app/sass/sticky-note/header.scss","webpack://./app/sass/sticky-note/variables.scss","webpack://./app/sass/sticky-note/lobby/note_index.scss"],"names":[],"mappings":"AAAA;EACI,SAAS,EAAA;;ACDb;ECQI,YAAY;EACZ,gBAAgB;EDPhB,aAAa;EACb,8BAA8B;EAC9B,mBAAmB,EAAA;EAJvB;IAQY,gBAAgB,EAAA;EAR5B;IAYQ,cCZmB;IDcf,eCbW,EAAA;EDDvB;IAmBY,iBAAU;IAGV,eCpBiB;IDqBjB,iBAAY,EAAA;EAvBxB;IA4BQ,WAAW;IACX,YAAY;IACZ,mBAAmB;IACnB,yBC3Ba,EAAA;;ACJrB;EDQI,YAAY;EACZ,gBAAgB,EAAA","sourcesContent":["body {\n    margin: 0;\n}",".header {\n    @include default-root-div;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n\n    .left {\n        * {\n            margin-bottom: 0;\n        }\n    }\n    .logo.common {\n        color: $logo_color_common;\n        font: {\n            size: $logo_size_common;\n        }\n    }\n    h1.page_title {\n        margin: {\n            top: 0.3em;\n        }\n        font: {\n            size: $page_title_size_common;\n            weight: bold;\n        }\n    }\n\n    .userprofile {\n        width: 28px;\n        height: 28px;\n        border-radius: 14px;\n        background-color: $normal_gray;\n    }\n}","$logo_color_common: #8B8B8B !default;\n$logo_size_common: 14px;\n$page_title_size_common: 18px;\n$dark_gray__text: #656565;\n$normal_gray: #dcdcdc;\n$light_gray: #f6f6f6;\n\n@mixin default-root-div {\n    margin: auto;\n    max-width: 350px;\n}\n@mixin default-text {\n    color: $dark_gray__text;\n    font: {\n        size: 13px;\n    }\n}",".note_index {\n    @include default-root-div;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8323,19 +8392,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Header */ "./app/renderer/components/Header.js");
+/* harmony import */ var _components_lobby_NoteIndex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/lobby/NoteIndex */ "./app/renderer/components/lobby/NoteIndex.js");
+
+
 
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-      className: "logo common"
-    }, "Sticky Note"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Hello World!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "We are using Node.js ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-      id: "node-version"
-    }), ", Chromium ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-      id: "chrome-version"
-    }), ", and Electron ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
-      id: "electron-version"
-    }), "."));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_2__.default, {
+      title: "\uC548\uB155\uD558\uC138\uC694."
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_lobby_NoteIndex__WEBPACK_IMPORTED_MODULE_3__.default, null));
   }
 
 }
