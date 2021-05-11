@@ -1,6 +1,14 @@
 # Sticky-Note-Improved
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
+**ShapeLayer/sticky-note-improved**
+```
+──┬─ main : 표시 브랜치 (현재)
+  │         ShapeLayer/sticky-note-improved 레포용 문서 포함
+  └┬─ main-pr : 메인 브랜치 (일부 문서 제외)
+   └─ dev : 개발 브랜치 
+```
+
 ## 라이브러리 설치
 ```bash
 npm install
@@ -8,15 +16,9 @@ npm install
 
 ## 프로젝트 실행
 ```bash
-start.bat    # Windows Command Prompt
-sh start.bat # macOS, Linux
-```
-
-혹은 아래 명령어를 직접 입력하여 실행할 수도 있습니다.  
-[start.bat](./start.bat)
-```bash
+npm start # Build Frontend and Start Application
 npm run build # Build Frontend
-npm start # Start Application
+npm run open # Start Application
 ```
 
 ## 폴더 구조
