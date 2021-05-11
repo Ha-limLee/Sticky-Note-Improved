@@ -1,13 +1,12 @@
 {
-  "name": "Sticky-Note-Improved",
+  "name": "sticky-note-improved",
   "version": "1.0.0",
-  "description": "Default  \r ![default](./docs/assets/README.md/default.png)",
+  "description": "Advanced Sticky Note.",
   "main": "main.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack && electron .",
     "build": "webpack",
     "open": "electron ."
