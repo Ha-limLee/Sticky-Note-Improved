@@ -1,9 +1,11 @@
 $logo_color_common: #8B8B8B !default;
 $logo_size_common: 14px;
 $page_title_size_common: 18px;
+$dark_gray: #C4C4C4;
 $dark_gray__text: #656565;
 $normal_gray: #dcdcdc;
 $light_gray: #f6f6f6;
+$radius__basic: 10px;
 
 @mixin default-root-div {
     margin: auto;
@@ -14,4 +16,11 @@ $light_gray: #f6f6f6;
     font: {
         size: 13px;
     }
+}
+@mixin no-text-content {
+    user-select: none;
+}
+@mixin default-root-element {
+    @include default-root-div;
+    @include no-text-content;
 }

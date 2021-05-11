@@ -1,3 +1,19 @@
 .note_index {
-    @include default-root-div;
+    @include default-root-element;
+    margin-top: 20px;
+
+    .note_frame {
+        margin: 10px 0;
+        padding: 10px;
+        color: $dark_gray__text;
+        background-color: $light_gray;
+        border-radius: $radius__basic;
+        transition: .1s ease-in-out;
+    }
+    .note_frame:hover, .note_frame:focus {
+        color: white;
+        background-color: $dark_gray;
+        transition: .1s ease-in-out;
+        cursor: pointer;
+    }
 }

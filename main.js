@@ -18,7 +18,9 @@ function createWindow () {
     width: 400,
     height: 500,
     WebPreferences: {
-      preload: path.join(__dirname, 'app', 'renderer', 'preload.js')
+      preload: path.join(__dirname, 'app', 'renderer', 'preload.js'),
+      nodeIntegration: false,
+      contextIsolation: true
     }
   })
   mainWindow.loadURL(url.format({

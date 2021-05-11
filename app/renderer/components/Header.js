@@ -9,7 +9,7 @@ export default class Header extends Component {
           <h1 className='page_title'>{this.props.title}</h1>
         </div>
         <div className='right user'>
-          <div className='userprofile'></div>
+          <div className='userprofile' />
         </div>
       </div>
     )

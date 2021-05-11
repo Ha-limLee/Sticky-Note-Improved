@@ -7,7 +7,7 @@ export default class App extends Component {
   render () {
     return (
       <div>
-        <Header 
+        <Header
           title='안녕하세요.'
         />
         <NoteIndex />

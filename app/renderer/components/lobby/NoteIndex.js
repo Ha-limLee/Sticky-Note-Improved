@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class NoteIndex extends Component {
-  render() {
+  render () {
     return (
       <div className='note_index'>
         <NoteFrame
@@ -13,9 +13,17 @@ export default class NoteIndex extends Component {
 }
 
 class NoteFrame extends Component {
-  render() {
+  handleClick (e) {
+    window.ipcRenderer.NoteFrameClicked(this.props.id)
+  }
+
+  render () {
+    const doClick = e => this.handleClick(e)
     return (
-      <div className='note_frame'>
+      <div
+        className='note_frame'
+        onClick={doClick}
+      >
         <p className='contents summary'>{this.props.summary}</p>
       </div>
     )

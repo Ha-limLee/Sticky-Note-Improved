@@ -1,8 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const externalPlugins = new webpack.ExternalsPlugin('commonjs', [
-    'auto-updater'
-])
 
 module.exports = {
   mode: 'development',
@@ -16,6 +13,11 @@ module.exports = {
   },
   devtool: 'eval-cheap-module-source-map',
   target: 'node',
+  plugins: [
+    new webpack.ExternalsPlugin('commonjs', [
+      'electron'
+    ])
+  ],
   module: {
     rules: [
       {
@@ -36,7 +38,5 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  },
-  devtool: 'source-map',
-  mode: 'development'
+  }
 }
