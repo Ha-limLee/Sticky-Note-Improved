@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "build": "webpack"
+    "start": "webpack && electron .",
+    "build": "webpack",
+    "open": "electron ."
   },
   "repository": {
     "type": "git",
