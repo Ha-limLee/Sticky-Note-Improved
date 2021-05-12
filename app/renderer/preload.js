@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld(
-  'ipcRenderer',
+  'api',
   {
     NoteFrameClicked: (id) => ipcRenderer.send('NoteFrameClicked', id)
   }
