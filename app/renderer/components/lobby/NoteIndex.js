@@ -32,7 +32,6 @@ class NoteFrame extends Component {
   }
 
   render () {
-    const id = new Date().toTimeString().slice(0, 8)
 
     const doClick = e => this.handleClick(e)
     return (
