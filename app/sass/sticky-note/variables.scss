@@ -8,19 +8,19 @@ $light_gray: #f6f6f6;
 $radius__basic: 10px;
 
 @mixin default-root-div {
-    margin: auto;
-    max-width: 350px;
+  margin: auto;
+  max-width: 350px;
 }
 @mixin default-text {
-    color: $dark_gray__text;
-    font: {
-        size: 13px;
-    }
+  color: $dark_gray__text;
+  font: {
+    size: 13px;
+  }
 }
 @mixin no-text-content {
-    user-select: none;
+  user-select: none;
 }
 @mixin default-root-element {
-    @include default-root-div;
-    @include no-text-content;
+  @include default-root-div;
+  @include no-text-content;
 }
