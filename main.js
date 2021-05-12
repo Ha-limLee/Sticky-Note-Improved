@@ -37,6 +37,8 @@ function createWindow () {
 // back-end logic
 
 const fs = require('fs')
+const { ipcMain } = require('electron')
+const { nanoid } = require('nanoid')
 
 const text_saved_dir = "C:\\Users\\sticky-notes-improved"
 
@@ -46,3 +48,9 @@ const init_dir = () => {
       console.log('Already Exists!')
   })
 }
+
+ipcMain.handle('nanoid-ipc', async (event)=>{
+  id = nanoid()
+  console.log(id)
+  return id
+})
