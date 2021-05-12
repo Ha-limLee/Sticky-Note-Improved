@@ -34,3 +34,15 @@ function createWindow () {
   })
 }
 
+// back-end logic
+
+const fs = require('fs')
+
+const text_saved_dir = "C:\\Users\\sticky-notes-improved"
+
+const init_dir = () => {
+  fs.mkdir(dir, err => {
+    if (err && err.code != 'EXIST') throw 'up'
+      console.log('Already Exists!')
+  })
+}
