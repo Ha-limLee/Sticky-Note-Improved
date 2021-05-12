@@ -40,17 +40,21 @@ const fs = require('fs')
 const { ipcMain } = require('electron')
 const { nanoid } = require('nanoid')
 
-const text_saved_dir = "C:\\Users\\sticky-notes-improved"
+// * js standard: Identifier 'text_saved_dir' is not in camel case. (camelcase) standard(camelcase)
+const text_saved_dir = 'C:\\Users\\sticky-notes-improved'
 
+// * js standard: Identifier 'init_dir' is not in camel case. (camelcase) standard(camelcase)
 const init_dir = () => {
+  // * js standard: 'dir' is not defined. (no-undef) standard(no-undef)
   fs.mkdir(dir, err => {
-    if (err && err.code != 'EXIST') throw 'up'
-      console.log('Already Exists!')
+    if (err && err.code !== 'EXIST') throw 'up'
+    // * js standard: Expected an error object to be thrown. (no-throw-literal) standard(no-throw-literal)
+    console.log('Already Exists!')
   })
 }
 
-ipcMain.handle('nanoid-ipc', async (event)=>{
-  id = nanoid()
+ipcMain.handle('nanoid-ipc', async (event) => {
+  const id = nanoid()
   console.log(id)
   return id
 })
