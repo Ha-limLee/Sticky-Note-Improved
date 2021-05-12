@@ -17,10 +17,11 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 400,
     height: 500,
-    WebPreferences: {
+    webPreferences: {
       preload: path.join(__dirname, 'app', 'renderer', 'preload.js'),
       nodeIntegration: false,
-      contextIsolation: true
+      contextIsolation: true,
+      enableRemoteModule: false
     }
   })
   mainWindow.loadURL(url.format({

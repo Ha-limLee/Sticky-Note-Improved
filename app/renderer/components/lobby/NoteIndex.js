@@ -14,7 +14,7 @@ export default class NoteIndex extends Component {
 
 class NoteFrame extends Component {
   handleClick (e) {
-    window.ipcRenderer.NoteFrameClicked(this.props.id)
+    window.api.NoteFrameClicked(this.props.id)
   }
 
   render () {
