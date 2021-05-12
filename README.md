@@ -1,4 +1,6 @@
 # Sticky-Note-Improved
+[![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4b8f2015049b44cba1b9d402e5133b92)](https://www.codacy.com/gh/ShapeLayer/Sticky-Note-Improved/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ShapeLayer/Sticky-Note-Improved&amp;utm_campaign=Badge_Grade)  
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
 ## 라이브러리 설치
