@@ -10,7 +10,9 @@
     border-radius: $radius__basic;
     transition: .1s ease-in-out;
   }
-  .note_frame:hover, .note_frame:focus {
+  
+  .note_frame:hover,
+  .note_frame:focus {
     color: white;
     background-color: $dark_gray;
     transition: .1s ease-in-out;
