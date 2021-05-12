@@ -1,6 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
-
 contextBridge.exposeInMainWorld(
   'api',
   {
@@ -8,6 +7,6 @@ contextBridge.exposeInMainWorld(
 
     invoke: () => {
       return ipcRenderer.invoke('nanoid-ipc')
-    },
+    }
   }
 )
