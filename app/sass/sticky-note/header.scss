@@ -1,5 +1,6 @@
 .header {
   @include default-root-element;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,12 +10,14 @@
       margin-bottom: 0;
     }
   }
+
   .logo.common {
     color: $logo_color_common;
     font: {
       size: $logo_size_common;
     }
   }
+
   h1.page_title {
     margin: {
       top: 0.3em;
