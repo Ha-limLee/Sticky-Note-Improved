@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import Header from './components/Header'
+import NoteIndex from './components/lobby/NoteIndex'
 
 export default class App extends Component {
   render () {
     return (
       <div>
-        <h1>Hello World!</h1>
-        <p>
-          We are using Node.js <span id='node-version' />,
-          Chromium <span id='chrome-version' />,
-          and Electron <span id='electron-version' />.
-        </p>
+        <Header
+          title='안녕하세요.'
+        />
+        <NoteIndex />
       </div>
     )
   }

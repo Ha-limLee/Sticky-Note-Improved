@@ -1,29 +1,41 @@
 const path = require('path')
 const webpack = require('webpack')
-const externalPlugins = new webpack.ExternalsPlugin('commonjs', [
-    'auto-updater'
-])
 
 module.exports = {
   mode: 'development',
-  entry: {
-    index: path.join(__dirname, 'app', 'renderer', 'index.js')
-  },
+  entry: [
+    path.join(__dirname, 'app', 'renderer', 'index.js'),
+    path.join(__dirname, 'app', 'sass', 'main.scss')
+  ],
   output: {
     path: path.join(__dirname, 'app', 'out'),
-    filename: '[name].js'
+    filename: 'bundle.js'
   },
   devtool: 'eval-cheap-module-source-map',
   target: 'node',
+  plugins: [
+    new webpack.ExternalsPlugin('commonjs', [
+      'electron'
+    ])
+  ],
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /\.js$/,
         loader: 'babel-loader',
         options: {
           presets: [['@babel/preset-react']],
           plugins: []
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
+        exclude: /node_modules/
       }
     ]
   }
