@@ -15,10 +15,13 @@ app.on('activate', () => {
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    WebPreferences: {
-      preload: path.join(__dirname, 'app', 'renderer', 'preload.js')
+    width: 400,
+    height: 500,
+    webPreferences: {
+      preload: path.join(__dirname, 'app', 'renderer', 'preload.js'),
+      nodeIntegration: false,
+      contextIsolation: true,
+      enableRemoteModule: false
     }
   })
   mainWindow.loadURL(url.format({
