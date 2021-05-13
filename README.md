@@ -1,4 +1,5 @@
 # Sticky-Note-Improved
+[![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)  
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
 ## 라이브러리 설치
