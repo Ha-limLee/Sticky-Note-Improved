@@ -1,45 +1,49 @@
 import React, { Component } from 'react'
+import NoteFrame from './NoteFrame'
 
 export default class NoteIndex extends Component {
   constructor (props) {
-    super()
-    // super(props)
-    // https://ko.reactjs.org/docs/react-component.html#constructor
-  }
+    super(props)
+    this.state = {
+      numNotes: 0, // 노트 수
 
-  render () {
-    const deleteThis = () => {
-      this.props.deleteCallBack(this.props.id)
+      // (key, value)를 저장하는 배열
+      // key := note의 key
+      // value := note 인스턴스
+      notes: new Map()
     }
-
-    return (
-      <div className='note_index' onClick={console.log(this.props.id)}>
-        <button onClick={deleteThis}>
-          제거
-        </button>
-        <NoteFrame
-          summary='Lorem ipsum'
-        />
-      </div>
-    )
   }
-}
 
-class NoteFrame extends Component {
-  handleClick (e) {
-    window.api.NoteFrameClicked(this.props.id)
+  deleteNote (noteId) {
+    if (this.state.numNotes > 0) {
+      this.state.notes.delete(noteId)
+      this.setState({
+        numNotes: this.state.numNotes - 1
+      })
+    }
+  }
+
+  addNote () {
+    window.api.invoke()
+    .then((resolve) => {
+      this.state.notes.set(resolve,
+        <NoteFrame key={resolve} id={resolve} deleteCallBack={deleteNote} />
+      )
+    })
+    .then(() => {
+      this.setState({
+        numNotes: this.state.numNotes + 1
+      })
+    })
   }
 
   render () {
-    const doClick = e => this.handleClick(e)
     return (
-      <div
-        className='note_frame'
-        onClick={doClick}
-      >
-
-        <p className='contents summary'>{this.props.summary}</p>
-        <textarea placeholder='click here' />
+      <div className='note_index'>
+        {Array.from(this.state.notes.values())}
+        <NoteFrame
+          summary='새 노트 만들기...'
+        />
       </div>
     )
   }

@@ -1,6 +1,5 @@
 const electron = require('electron')
 const path = require('path')
-const url = require('url')
 const ipcMain = electron.ipcMain
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -34,11 +33,7 @@ function createWindow () {
       enableRemoteModule: false
     }
   })
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'app', 'windows', 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  mainWindow.loadURL('file://' + path.join(__dirname, 'app', 'windows', 'index.html'))
   mainWindow.on('closed', () => {
     mainWindow = null
   })
@@ -50,6 +45,8 @@ const fs = require('fs')
 
 // * js standard: Identifier 'text_saved_dir' is not in camel case. (camelcase) standard(camelcase)
 const text_saved_dir = 'C:\\Users\\sticky-notes-improved'
+// !! NOTICE: C:\Users is User Profile Directory.
+// !! NOTICE: This URL Format cannot support macOS, Linux.
 
 // * js standard: Identifier 'init_dir' is not in camel case. (camelcase) standard(camelcase)
 const init_dir = () => {
