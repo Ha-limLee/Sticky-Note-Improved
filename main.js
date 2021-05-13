@@ -15,11 +15,11 @@ app.on('activate', () => {
 })
 
 ipcMain.on('NoteFrameClicked', (event, arg) => {
-  /*noteWindow = new BrowserWindow({
+  /* noteWindow = new BrowserWindow({
     width: 400,
     height: 500,
     webPreferences: {}
-  })*/
+  }) */
 })
 
 function createWindow () {
@@ -46,7 +46,6 @@ function createWindow () {
 // back-end logic
 
 const fs = require('fs')
-const { ipcMain } = require('electron')
 const { nanoid } = require('nanoid')
 
 // * js standard: Identifier 'text_saved_dir' is not in camel case. (camelcase) standard(camelcase)
