@@ -4,6 +4,7 @@ const url = require('url')
 const ipcMain = electron.ipcMain
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
+const { nanoid } = require('nanoid')
 
 let mainWindow
 app.on('ready', createWindow)
@@ -46,7 +47,6 @@ function createWindow () {
 // back-end logic
 
 const fs = require('fs')
-const { nanoid } = require('nanoid')
 
 // * js standard: Identifier 'text_saved_dir' is not in camel case. (camelcase) standard(camelcase)
 const text_saved_dir = 'C:\\Users\\sticky-notes-improved'
