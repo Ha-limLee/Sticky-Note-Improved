@@ -4,12 +4,22 @@
   margin-top: 20px;
 
   .note_frame {
+    position: relative;
     margin: 10px 0;
-    padding: 10px;
     color: $dark_gray__text;
     background-color: $light_gray;
     border-radius: $radius__basic;
     transition: .1s ease-in-out;
+
+    .wrapper {
+      min-height: 50px;
+      padding: 10px;
+    }
+
+    .btn {
+      position: absolute;
+      z-index: 3;
+    }
   }
 
   .note_frame:hover,
