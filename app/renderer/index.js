@@ -4,9 +4,6 @@ import Header from './components/Header'
 import NoteIndex from './components/lobby/NoteIndex'
 
 export default class App extends Component {
-  constructor () {
-  }
-
   render () {
     return (
       <div>
@@ -16,10 +13,6 @@ export default class App extends Component {
         <NoteIndex />
       </div>
     )
-      /*
-        <button onClick={addNote}>
-        노트 추가
-      </button>*/
   }
 }
 

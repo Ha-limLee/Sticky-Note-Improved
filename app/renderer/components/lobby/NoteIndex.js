@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NoteFrame from './NoteFrame'
+import { NoteBtn, NoteSummary } from './NoteFrame'
 
 export default class NoteIndex extends Component {
   constructor (props) {
@@ -15,6 +15,7 @@ export default class NoteIndex extends Component {
   }
 
   deleteNote (noteId) {
+    console.log(this.state.numNotes)
     if (this.state.numNotes > 0) {
       this.state.notes.delete(noteId)
       this.setState({
@@ -25,24 +26,29 @@ export default class NoteIndex extends Component {
 
   addNote () {
     window.api.invoke()
-    .then((resolve) => {
-      this.state.notes.set(resolve,
-        <NoteFrame key={resolve} id={resolve} deleteCallBack={deleteNote} />
-      )
-    })
-    .then(() => {
-      this.setState({
-        numNotes: this.state.numNotes + 1
+      .then((resolve) => {
+        console.log(resolve)
+        this.state.notes.set(resolve,
+          <NoteSummary key={resolve} id={resolve} deleteCallBack={this.deleteNote.bind(this)} />
+        )
       })
-    })
+      .then(() => {
+        this.setState({
+          numNotes: this.state.numNotes + 1
+        })
+      })
   }
 
   render () {
+    const addNote = () => {
+      this.addNote()
+    }
     return (
       <div className='note_index'>
         {Array.from(this.state.notes.values())}
-        <NoteFrame
-          summary='새 노트 만들기...'
+        <NoteBtn
+          display='새 노트 만들기...'
+          onClick={addNote}
         />
       </div>
     )
