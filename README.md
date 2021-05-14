@@ -1,7 +1,7 @@
 # Sticky-Note-Improved
 [![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)  
 
-<img src="./docs/assets/README.md/demo.png" style="width: 300px;" />
+<img src="./docs/assets/README.md/demo.png" width="300" />
 
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
