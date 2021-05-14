@@ -38,10 +38,5 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  },
-  /**
-  externals: {
-    'crypto': 'crypto'
   }
-   */
 }
