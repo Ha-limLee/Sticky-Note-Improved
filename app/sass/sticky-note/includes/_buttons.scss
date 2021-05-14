@@ -1,0 +1,27 @@
+.btn {
+  @include align-middle;
+
+  display: inline-block;
+
+  &.btn-square.btn-small {
+    top: $btn_small_margin_size;
+    right: $btn_small_margin_size;
+    padding: $btn_small_padding_size;
+    width: $btn_small_square_size;
+    height: $btn_small_square_size;
+    border-radius: $btn_small_square_radius;
+  }
+
+  &.btn-danger {
+    color: $gray_dark_text;
+    background-color: $gray_normal;
+    transition: $color-transition;
+  }
+
+  &.btn-danger:hover,
+  &.btn-danger:focus {
+    color: white;
+    background-color: $is-danger;
+    transition: $color-transition;
+  }
+}
