@@ -15,7 +15,6 @@ export default class NoteIndex extends Component {
   }
 
   deleteNote (noteId) {
-    console.log(this.state.numNotes)
     if (this.state.numNotes > 0) {
       this.state.notes.delete(noteId)
       this.setState({
