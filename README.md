@@ -1,5 +1,8 @@
 # Sticky-Note-Improved
 [![](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)  
+
+![Application Demo](./docs/assets/README.md/demo.png)  
+
 Sticky Note Improved는 공학설계입문(이칠우 교수) 4팀 프로젝트입니다.
 
 ## 라이브러리 설치
@@ -27,7 +30,9 @@ npm run open # Start Application
 ## 프로토타입
 [Figma](https://www.figma.com/proto/5ZyfEqvnN36g2hPs7rle0u/Advanced-Sticky-Note?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
 
-### 이전 버전
+<details>
+    <summary>(이전 버전 프로토타입 보기)</summary>
+
 Default  
 ![default](./docs/assets/README.md/default.png)  
 
@@ -39,3 +44,4 @@ Add Memo
 
 Add PDF  
 ![add-pdf](./docs/assets/README.md/add-pdf.png)  
+</details>
