@@ -1,5 +1,5 @@
 /* Application Identity */
-$logo_color_common: #8B8B8B !default;
+$logo_color_common: #8b8b8b !default;
 $logo_size_common: 14px;
 $page_title_size_common: 18px;
 
@@ -10,10 +10,14 @@ $btn_small_margin_size: 10px;
 $btn_small_padding_size: 5px;
 
 /* Commons */
-$dark_gray: #C4C4C4;
-$dark_gray__text: #656565;
-$normal_gray: #dcdcdc;
-$light_gray: #f6f6f6;
+$red_normal: red;
+$gray_dark: #c4c4c4;
+$gray_dark_text: #656565;
+$gray_normal: #dcdcdc;
+$gray_light: #f6f6f6;
+$is-danger: $red_normal;
+$color-transition: 0.1s ease-in-out;
+
 $radius__basic: 10px;
 
 /* Mixins */
@@ -28,7 +32,7 @@ $radius__basic: 10px;
 }
 
 @mixin default-text {
-  color: $dark_gray__text;
+  color: $gray_dark_text;
   font: {
     size: 13px;
   }

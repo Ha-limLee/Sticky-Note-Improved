@@ -17,7 +17,7 @@ class NoteFrame extends Component {
     return (
       <div className='note_frame'>
         <div
-          className='btn btn-square btn-small trash'
+          className='btn btn-square btn-small btn-danger trash'
           onClick={deleteBtnHandler}
         >
           <TrashIcon size={16} />
@@ -43,7 +43,7 @@ class NoteBtn extends Component {
       this.props.onClick()
     }
     return (
-      <div>
+      <div className='note_btn'>
         <NoteFrame
           display={this.props.display}
           onClick={clickHandler}
@@ -65,7 +65,7 @@ class NoteSummary extends Component {
   render () {
     const doClick = () => this.handleClick()
     return (
-      <div>
+      <div className='note_summary'>
         <NoteFrame
           summary={this.props.display}
           onClick={doClick}
