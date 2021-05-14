@@ -1,0 +1,14 @@
+.btn {
+  &.btn-square.btn-small {
+    @include align-middle;
+
+    display: inline-block;
+    top: $btn_small_margin_size;
+    right: $btn_small_margin_size;
+    padding: $btn_small_padding_size;
+    background-color: black;
+    width: $btn_small_square_size;
+    height: $btn_small_square_size;
+    border-radius: $btn_small_square_radius;
+  }
+}

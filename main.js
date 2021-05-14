@@ -28,7 +28,7 @@ function createWindow () {
     height: 500,
     webPreferences: {
       preload: path.join(__dirname, 'app', 'renderer', 'preloads', 'index.js'),
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       enableRemoteModule: false
     }

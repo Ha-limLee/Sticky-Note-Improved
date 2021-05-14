@@ -1,25 +1,81 @@
 import React, { Component } from 'react'
+import { TrashIcon } from '@primer/octicons-react'
 
-export default class NoteFrame extends Component {
-  handleClick (e) {
-    window.api.NoteFrameClicked(this.props.id)
+class NoteFrame extends Component {
+  constructor (props) {
+    super()
+  }
+
+  deleteThis () {
+    this.props.deleteCallBack()
+  }
+
+  render () {
+    const deleteBtnHandler = () => {
+      this.props.deleteCallBack(this.props.id)
+    }
+    return (
+      <div className='note_frame'>
+        <div
+          className='btn btn-square btn-small trash'
+          onClick={deleteBtnHandler}
+        >
+          <TrashIcon size={16} />
+        </div>
+        <div
+          className='wrapper'
+          onClick={this.props.onClick}
+        >
+          <p className='contents summary'>{this.props.display}</p>
+        </div>
+      </div>
+    )
+  }
+}
+
+class NoteBtn extends Component {
+  constructor (props) {
+    super()
+  }
+
+  render () {
+    const clickHandler = () => {
+      this.props.onClick()
+    }
+    return (
+      <div>
+        <NoteFrame
+          display={this.props.display}
+          onClick={clickHandler}
+        />
+      </div>
+    )
+  }
+}
+
+class NoteSummary extends Component {
+  constructor (props) {
+    super()
+  }
+
+  handleClick () {
     console.log(this.props.id)
   }
 
   render () {
-    const doClick = e => this.handleClick(e)
-    const deleteThis = () => {
-      this.props.deleteCallBack(this.props.id)
-    }
+    const doClick = () => this.handleClick()
     return (
-      <div
-        className='note_frame'
-        onClick={doClick}
-      >
-        <button onClick={deleteThis}>제거</button>
-        <p className='contents summary'>{this.props.summary}</p>
+      <div>
+        <NoteFrame
+          summary={this.props.display}
+          onClick={doClick}
+          deleteCallBack={this.props.deleteCallBack}
+          id={this.props.id}
+        />
         <textarea placeholder='click here' />
       </div>
     )
   }
 }
+
+export { NoteFrame, NoteBtn, NoteSummary }
