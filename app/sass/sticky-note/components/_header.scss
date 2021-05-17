@@ -11,6 +11,13 @@
     }
   }
 
+  .logo.common,
+  h1.page_title,
+  input[type="text"].page_title {
+    padding: 0 8px;
+    border: none;
+  }
+
   .logo.common {
     color: $logo_color_common;
     font: {
@@ -18,14 +25,29 @@
     }
   }
 
-  h1.page_title {
+  h1.page_title, input[type="text"].page_title {
     margin: {
       top: 0.3em;
     }
+    padding: {
+      top: 4px;
+      bottom: 4px;
+    }
+    border-radius: 4px;
+    background-color: inherit;
     font: {
       size: $page_title_size_common;
       weight: bold;
     }
+    transition: $color-transition;
+  }
+
+  h1.page_title.editable:hover,
+  h1.page_title.editable:focus,
+  input[type="text"].page_title:hover,
+  input[type="text"].page_title:focus {
+    background-color: $gray_normal;
+    transition: $color-transition;
   }
 
   .userprofile {

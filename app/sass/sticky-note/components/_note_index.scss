@@ -1,7 +1,6 @@
 .note_index {
   @include default-root-element;
-
-  margin-top: 20px;
+  @include normal-margin-top;
 
   .note_frame {
     position: relative;

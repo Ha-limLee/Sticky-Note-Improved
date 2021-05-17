@@ -2,6 +2,8 @@
   @include align-middle;
 
   display: inline-block;
+  background-color: rgba(0, 0, 0, 0);
+  transition: $color-transition;
 
   &.btn-square.btn-small {
     top: $btn_small_margin_size;
@@ -12,10 +14,18 @@
     border-radius: $btn_small_square_radius;
   }
 
+  &.btn-darker {
+    background-color: $gray_normal;
+  }
+
+  &.btn-normal:hover,
+  &.btn-normal:focus {
+    background-color: $gray_dark;
+    transition: $color-transition;
+  }
+
   &.btn-danger {
     color: $gray_dark_text;
-    background-color: $gray_normal;
-    transition: $color-transition;
   }
 
   &.btn-danger:hover,
@@ -23,5 +33,9 @@
     color: white;
     background-color: $is-danger;
     transition: $color-transition;
+  }
+
+  &.btn-outline {
+
   }
 }
