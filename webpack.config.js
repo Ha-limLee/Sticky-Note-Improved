@@ -3,13 +3,18 @@ const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
-  entry: [
-    path.join(__dirname, 'app', 'renderer', 'index.js'),
-    path.join(__dirname, 'app', 'sass', 'main.scss')
-  ],
+  entry: {
+    index: [
+      path.join(__dirname, 'app', 'renderer', 'index.js'),
+      path.join(__dirname, 'app', 'sass', 'main.scss')],
+    note: [
+      path.join(__dirname, 'app', 'renderer', 'noteWindow.js'),
+      path.join(__dirname, 'app', 'sass', 'main.scss')
+    ]
+  },
   output: {
     path: path.join(__dirname, 'app', 'out'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   devtool: 'eval-cheap-module-source-map',
   target: 'node',
