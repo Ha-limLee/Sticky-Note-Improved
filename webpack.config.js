@@ -7,7 +7,7 @@ module.exports = {
     index: [
       path.join(__dirname, 'app', 'renderer', 'index.js'),
       path.join(__dirname, 'app', 'sass', 'main.scss')],
-    note: [
+    noteWindow: [
       path.join(__dirname, 'app', 'renderer', 'noteWindow.js'),
       path.join(__dirname, 'app', 'sass', 'main.scss')
     ]

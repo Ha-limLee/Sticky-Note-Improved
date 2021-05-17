@@ -73,7 +73,6 @@ class NoteSummary extends Component {
           deleteCallBack={this.props.deleteCallBack}
           id={this.props.id}
         />
-        <textarea placeholder='click here' />
       </div>
     )
   }
