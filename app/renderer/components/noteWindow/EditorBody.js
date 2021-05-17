@@ -10,7 +10,7 @@ export default class EditorBody extends Component {
     return (
       <div className='editor_body' contentEditable>
         <div className='placeHolder'>
-          <p>안녕하세요, Sticky Note 입니다. 이 문장을 지우고 메모를 시작하세요.</p>
+          <p>안녕하세요, Sticky Note입니다. 이 문장을 지우고 메모를 시작하세요.</p>
         </div>
       </div>
     )
