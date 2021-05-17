@@ -17,7 +17,7 @@ class NoteFrame extends Component {
     return (
       <div className='note_frame'>
         <div
-          className='btn btn-square btn-small btn-danger trash'
+          className='btn btn-square btn-small btn-darker btn-danger trash'
           onClick={deleteBtnHandler}
         >
           <TrashIcon size={16} />
@@ -59,6 +59,7 @@ class NoteSummary extends Component {
   }
 
   handleClick () {
+    window.api.noteFrameClicked(this.props.id)
     console.log(this.props.id)
   }
 
