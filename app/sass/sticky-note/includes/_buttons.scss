@@ -4,6 +4,7 @@
   display: inline-block;
   background-color: rgba(0, 0, 0, 0);
   transition: $color-transition;
+  cursor: pointer;
 
   &.btn-square.btn-small {
     top: $btn_small_margin_size;
