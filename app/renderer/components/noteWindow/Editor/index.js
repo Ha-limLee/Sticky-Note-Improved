@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EditorTopMenu from './EditorTopMenu'
+import EditorTopMenu from './controls/EditorTopMenu'
 import EditorBody from './EditorBody'
 
 export default class Editor extends Component {
