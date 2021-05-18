@@ -13,15 +13,11 @@ export default class App extends Component {
   }
 
   render () {
-    const onChangeHandler = () => {
-      this.setTitle('Sticky Note')
-    }
     return (
       <div>
         <Header
           title='안녕하세요.'
           editable='true'
-          onChange={onChangeHandler}
         />
         <Editor />
       </div>

@@ -7,10 +7,14 @@
   cursor: pointer;
 
   &.btn-square.btn-small {
-    top: $btn_small_margin_size;
-    right: $btn_small_margin_size;
     padding: $btn_small_padding_size;
     width: $btn_small_square_size;
+    height: $btn_small_square_size;
+    border-radius: $btn_small_square_radius;
+  }
+
+  &.btn-long.btn-small {
+    padding: $btn_small_padding_size;
     height: $btn_small_square_size;
     border-radius: $btn_small_square_radius;
   }
@@ -38,5 +42,10 @@
 
   &.btn-outline {
 
+  }
+
+  &.btn-right-hover {
+    top: $btn_small_margin_size;
+    right: $btn_small_margin_size;
   }
 }

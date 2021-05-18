@@ -17,7 +17,7 @@ class NoteFrame extends Component {
     return (
       <div className='note_frame'>
         <div
-          className='btn btn-square btn-small btn-darker btn-danger trash'
+          className='btn btn-square btn-small btn-darker btn-danger btn-right-hover trash'
           onClick={deleteBtnHandler}
         >
           <TrashIcon size={16} />

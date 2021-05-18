@@ -3,9 +3,12 @@
 
   color: $gray_dark_text;
 
-  .editor_topmenu div {
+  .editor_topmenu {
     @include normal-margin-top;
+  }
 
+  .editor_topmenu div {
+    margin-top: 3px;
     margin-right: 3px;
   }
 
