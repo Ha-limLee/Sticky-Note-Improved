@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NoteBtn, NoteSummary } from './NoteFrame'
+import { NoteBtn, NoteSummary } from '../NoteFrame'
 
 export default class NoteIndex extends Component {
   constructor (props) {
