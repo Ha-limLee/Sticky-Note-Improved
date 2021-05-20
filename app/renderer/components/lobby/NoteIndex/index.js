@@ -75,7 +75,7 @@ export default class NoteIndex extends Component {
   }
 
   addNote () {
-    window.api.invoke()
+    window.api.getNanoid()
       .then((resolve) => {
         console.log(resolve)
         this.state.notes.set(resolve, { key: resolve })

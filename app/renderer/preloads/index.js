@@ -5,7 +5,7 @@ contextBridge.exposeInMainWorld(
   {
     noteFrameClicked: (id) => ipcRenderer.send('NoteFrameClicked', id),
 
-    invoke: () => {
+    getNanoid: () => {
       return ipcRenderer.invoke('nanoid-ipc')
     }
   }
