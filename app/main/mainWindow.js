@@ -2,8 +2,8 @@ const electron = require('electron')
 const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 
-exports.createWindow = (mainWindow) => {
-  mainWindow = new BrowserWindow({
+exports.createWindow = () => {
+  let mainWindow = new BrowserWindow({
     width: 400,
     height: 500,
     webPreferences: {
@@ -17,4 +17,6 @@ exports.createWindow = (mainWindow) => {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  return mainWindow
 }
