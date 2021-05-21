@@ -8,6 +8,15 @@ ipcMain.handle('nanoid-ipc', async (event) => {
   return id
 })
 
-ipcMain.on('NoteFrameClicked', (event, arg) => {
-  createNoteWindow()
+let noteIdCache = ''
+let noteWindow
+
+ipcMain.on('getNoteId', (event) => {
+  event.returnValue = noteIdCache
+})
+
+ipcMain.on('NoteFrameClicked', (event, id) => {
+  noteIdCache = id
+
+  noteWindow = createNoteWindow()
 })
