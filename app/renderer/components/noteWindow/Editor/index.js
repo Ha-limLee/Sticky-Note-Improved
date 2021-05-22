@@ -13,7 +13,7 @@ export default class Editor extends Component {
         className='editor'
       >
         <EditorTopMenu />
-        <EditorBody />
+        <EditorBody id={this.props.id} />
       </div>
     )
   }

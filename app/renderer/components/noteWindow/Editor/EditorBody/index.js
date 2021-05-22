@@ -8,6 +8,7 @@ export default class EditorBody extends Component {
     }
     this.textInput = React.createRef()
     this.getText = this.getText.bind(this)
+    this.textAreaRef = React.createRef()
   }
 
   getText () {
@@ -17,17 +18,23 @@ export default class EditorBody extends Component {
     }
   }
 
+  // load text
   componentDidMount () {
-
+    const noteText = window.api.getNoteText()
+    this.setState({
+      text: noteText
+    })
+    this.textAreaRef.current.innerHTML = noteText
   }
 
+  // save text
   componentDidUpdate () {
-    console.log(this.state.text)
+    window.api.sendNoteText(this.props.id, this.state.text)
   }
 
   handleChange (event) {
     this.setState({
-      text: event.currentTarget.textContent
+      text: event.currentTarget.innerHTML
     })
   }
 
@@ -40,9 +47,9 @@ export default class EditorBody extends Component {
         <span
           className='textarea'
           role='textbox'
-          value={this.state.text}
           onBlur={handleChange}
           contentEditable
+          ref={this.textAreaRef}
         />
         <button onClick={getText}>log</button>
       </div>
