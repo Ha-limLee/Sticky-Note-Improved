@@ -11,6 +11,32 @@ contextBridge.exposeInMainWorld(
 
       console.log(noteId)
       return noteId
+    },
+
+    getNoteText: () => {
+      let noteText = ''
+      noteText = ipcRenderer.sendSync('getNoteText')
+      return noteText
+    },
+
+    /**
+    onNoteWindowClose: () => {
+      ipcRenderer.on('noteWindow-close', (e) => {
+        console.log('send text from noteWindow')
+        e.sender.send('noteWindow-close-reply', this.getText())
+      })
+    },
+     */
+
+    editorBodyUnmount: () => {
+      ipcRenderer.send('editorBodyUnmount', 'editorBodyUnmount')
+    },
+
+    /**
+     * send noteText from noteWindow
+     */
+    sendNoteText: (id, text) => {
+      ipcRenderer.send('sendNoteText', id, text)
     }
   }
 )

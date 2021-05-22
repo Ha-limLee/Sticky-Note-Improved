@@ -21,8 +21,8 @@ export default class App extends Component {
     })
   }
 
-  test () {
-    console.log(this.state.id)
+  componentWillUnmount () {
+    window.api.beforeUnmound('Does it work?')
   }
 
   render () {
@@ -39,7 +39,7 @@ export default class App extends Component {
           editable='true'
           onChange={onChangeHandler}
         />
-        <Editor />
+        <Editor id={this.state.id} />
         <button onClick={testHandler}>log id</button>
       </div>
     )
