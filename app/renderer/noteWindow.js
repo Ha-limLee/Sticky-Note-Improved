@@ -40,7 +40,7 @@ export default class App extends Component {
           onChange={onChangeHandler}
         />
         <Editor id={this.state.id} />
-        <button onClick={testHandler}>log id</button>
+        {/* <button onClick={testHandler}>log id</button> */}
       </div>
     )
   }
