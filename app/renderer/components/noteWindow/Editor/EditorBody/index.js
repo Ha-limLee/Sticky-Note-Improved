@@ -51,7 +51,7 @@ export default class EditorBody extends Component {
           contentEditable
           ref={this.textAreaRef}
         />
-        <button onClick={getText}>log</button>
+        {/* <button onClick={getText}>log</button> */}
       </div>
     )
   }
