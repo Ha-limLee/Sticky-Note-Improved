@@ -19,10 +19,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  // macOS specific code
-  if (mainWindow == null) {
-    mainWindow = createWindow()
-  }
+  if (mainWindow == null) mainWindow = createWindow()
 })
 
 ///
