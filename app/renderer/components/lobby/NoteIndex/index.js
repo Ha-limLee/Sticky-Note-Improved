@@ -16,6 +16,9 @@ export default class NoteIndex extends Component {
     }
   }
 
+  // 이 함수가 불릴 때, this를 잃는 경우가 있습니다.
+  // class 내에서 arrow function으로 지정하면 this가 이 class의 객체로 묶인다고 합니다.
+  // see: https://stackoverflow.com/questions/50297676/react-binding-this-to-a-class-method
   _storeNote = () => {
     const { numNotes, notes } = this.state
     window.localStorage.setItem('sticky-notes-app-data-num', numNotes)
@@ -68,9 +71,6 @@ export default class NoteIndex extends Component {
       numNotes: prevNum,
       notes: prevNotes
     })
-  }
-
-  componentDidUpdate () {
   }
 
   deleteNote (noteId) {

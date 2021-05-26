@@ -7,7 +7,7 @@ const { nanoid } = require('nanoid')
 
 let mainWindow // protect mainWindow from gabage collection
 let noteWindow
-const cacheQueue = []
+const cacheQueue = [] // noteId container
 
 app.on('ready', () => {
   mainWindow = createWindow()
@@ -23,8 +23,7 @@ app.on('activate', () => {
   }
 })
 
-///
-
+// noteWindow에서 noteId를 요청할 때 사용
 ipcMain.on('getNoteId', (event) => {
   event.returnValue = cacheQueue.shift()
 })
