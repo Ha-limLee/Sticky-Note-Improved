@@ -34,6 +34,8 @@ app.on('ready', () => {
     // noteWindow가 rendering될 때, getNoteId 채널을 통해 noteId를 요청
     // -> cacheQueue에서 하나씩 빼서 준다
   })
+
+  mainWindow.webContents.send('test-channel', 'from test-channel')
 })
 
 ipcMain.handle('nanoid-ipc', async (event) => {

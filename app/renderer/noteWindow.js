@@ -25,7 +25,6 @@ export default class App extends Component {
     const onChangeHandler = () => {
       this.setTitle('Sticky Note')
     }
-
     return (
       <div>
         <Header
