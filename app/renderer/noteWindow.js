@@ -6,9 +6,7 @@ import Editor from './components/noteWindow/Editor'
 export default class App extends Component {
   constructor (props) {
     super()
-    this.state = {
-      id: '' // It will be used to save and load data
-    }
+    this.id = window.api.getNoteId()
   }
 
   setTitle (title) {
@@ -16,9 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    this.setState({
-      id: window.api.getNoteId()
-    })
+    console.log('in app', this.id)
   }
 
   componentWillUnmount () {
@@ -29,9 +25,7 @@ export default class App extends Component {
     const onChangeHandler = () => {
       this.setTitle('Sticky Note')
     }
-    const testHandler = () => {
-      this.test()
-    }
+
     return (
       <div>
         <Header
@@ -39,7 +33,7 @@ export default class App extends Component {
           editable='true'
           onChange={onChangeHandler}
         />
-        <Editor id={this.state.id} />
+        <Editor id={this.id} />
         {/* <button onClick={testHandler}>log id</button> */}
       </div>
     )

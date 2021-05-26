@@ -7,11 +7,12 @@ class NoteFrame extends Component {
     this.pRef = new React.createRef()
   }
 
-  componentDidMount () {
+  componentDidUpdate () {
     this.pRef.current.innerHTML = this.props.display
   }
 
   deleteThis () {
+    window.localStorage.removeItem(this.props.id)
     this.props.deleteCallBack()
   }
 
@@ -61,14 +62,37 @@ class NoteBtn extends Component {
 class NoteSummary extends Component {
   constructor (props) {
     super()
-    this.testMessage = ''
+    this.state = {
+      text: ''
+    }
+  }
+  _onStorageChanged = () => {
+    const prevText = window.localStorage.getItem(this.props.id)
+
+    if (prevText && prevText != this.state.text) {
+      this.setState({
+        text: prevText
+      })
+    }
+  }
+
+  // load text from local
+  componentDidMount () {
+    window.addEventListener('storage', this._onStorageChanged)
+    const prevText = window.localStorage.getItem(this.props.id)
+
+    if (prevText) {
+      this.setState({
+        text: prevText
+      })
+    }
   }
 
   handleClick () {
-    window.api.noteFrameClicked(this.props.id, this.props.text)
+    window.api.noteFrameClicked(this.props.id)
     console.log('NoteSummary clicked\n' +
       '    id: ' + this.props.id + '\n' +
-      '  text: ' + this.props.text + '\n'
+      '  text: ' + this.state.text + '\n'
     )
   }
 
@@ -77,7 +101,7 @@ class NoteSummary extends Component {
     return (
       <div className='note_summary'>
         <NoteFrame
-          display={this.props.text}
+          display={this.state.text}
           onClick={doClick}
           deleteCallBack={this.props.deleteCallBack}
           id={this.props.id}

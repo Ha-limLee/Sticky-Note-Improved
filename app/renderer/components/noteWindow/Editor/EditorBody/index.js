@@ -3,53 +3,38 @@ import React, { Component } from 'react'
 export default class EditorBody extends Component {
   constructor (props) {
     super()
-    this.state = {
-      text: ''
-    }
-    this.textInput = React.createRef()
-    this.getText = this.getText.bind(this)
-    this.textAreaRef = React.createRef()
+    this.text = ''
+    this.textareaRef = React.createRef()
   }
 
-  getText () {
-    return {
-      key: this.props.id,
-      value: this.textInput.current.innerHTML
-    }
+  _saveData = () => {
+    // window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
+    window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
   }
 
   // load text
   componentDidMount () {
-    const noteText = window.api.getNoteText()
-    this.setState({
-      text: noteText
-    })
-    this.textAreaRef.current.innerHTML = noteText
-  }
+    window.addEventListener('beforeunload', this._saveData)
 
-  // save text
-  componentDidUpdate () {
-    window.api.sendNoteText(this.props.id, this.state.text)
-  }
-
-  handleChange (event) {
-    this.setState({
-      text: event.currentTarget.innerHTML
-    })
+    const prevText = window.localStorage.getItem(this.props.id)
+    if (prevText) {
+      this.setState({
+        text: prevText
+      })
+    }
+    this.textareaRef.current.innerHTML = prevText
+    console.log('in EditorBody', this.props.id)
   }
 
   render () {
-    const getText = this.getText
-    const handleChange = this.handleChange.bind(this)
-
     return (
       <div className='editor_body'>
         <span
           className='textarea'
           role='textbox'
-          onBlur={handleChange}
+          // onBlur={handleChange}
           contentEditable
-          ref={this.textAreaRef}
+          ref={this.textareaRef}
         />
         {/* <button onClick={getText}>log</button> */}
       </div>

@@ -7,6 +7,10 @@ export default class Editor extends Component {
     super()
   }
 
+  componentDidMount () {
+    console.log('in Editor', this.props.id)
+  }
+
   render () {
     return (
       <div
