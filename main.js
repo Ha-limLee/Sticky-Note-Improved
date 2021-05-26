@@ -17,10 +17,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  // macOS specific code
-  if (mainWindow == null) {
-    mainWindow = createWindow()
-  }
+  if (mainWindow == null) mainWindow = createWindow()
 })
 
 // noteWindow에서 noteId를 요청할 때 사용
