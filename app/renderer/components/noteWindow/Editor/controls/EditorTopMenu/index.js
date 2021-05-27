@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import {
-  HeadingIcon,
-  LinkIcon,
-  ImageIcon,
   ListOrderedIcon,
   ListUnorderedIcon
 } from '@primer/octicons-react'
 import {
   BtnBold,
   BtnItalic,
-  BtnStrikeThrough
+  BtnStrikeThrough,
+  BtnLink,
+  BtnHeading,
+  BtnImage
 } from '../Buttons'
 
 export default class EditorTopMenu extends Component {
@@ -24,9 +24,9 @@ export default class EditorTopMenu extends Component {
           <BtnBold />
           <BtnItalic />
           <BtnStrikeThrough />
-          <div className='btn btn-square btn-small btn-normal heading'><HeadingIcon size={16} /></div>
-          <div className='btn btn-square btn-small btn-normal link'><LinkIcon size={16} /></div>
-          <div className='btn btn-square btn-small btn-normal image'><ImageIcon size={16} /></div>
+          <BtnLink />
+          <BtnHeading />
+          <BtnImage />
           <div className='btn btn-square btn-small btn-normal ol'><ListOrderedIcon size={16} /></div>
           <div className='btn btn-square btn-small btn-normal ul'><ListUnorderedIcon size={16} /></div>
         </div>

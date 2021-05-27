@@ -29,6 +29,22 @@
     transition: $color-transition;
   }
 
+  &.wrapper {
+    position: relative;
+
+    .input-field {
+      position: absolute;
+      padding: 10px;
+      top: 5px;
+      left: 30px;
+      border: 1px solid $gray_dark;
+      border-radius: 7px;
+      background-color: #fff;
+      z-index: 5;
+
+    }
+  }
+
   &.btn-danger {
     color: $gray_dark_text;
   }

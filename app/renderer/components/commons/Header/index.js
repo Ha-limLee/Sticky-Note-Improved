@@ -4,7 +4,7 @@ export default class Header extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      titleValue: 'Untitled Note - 1'
+      titleValue: 'Untitled Note'
     }
   }
 
