@@ -1,6 +1,6 @@
-const { ipcMain } = require('electron')
 const electron = require('electron')
 const app = electron.app
+const ipcMain = electron.ipcMain
 const { createWindow } = require('./app/main/mainWindow')
 const { createNoteWindow } = require('./app/main/NoteWindow/createNoteWindow')
 const { nanoid } = require('nanoid')
