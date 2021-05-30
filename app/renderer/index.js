@@ -4,6 +4,10 @@ import Header from './components/commons/Header'
 import NoteIndex from './components/lobby/NoteIndex'
 
 export default class App extends Component {
+  constructor (pros) {
+    super()
+  }
+
   render () {
     return (
       <div>
