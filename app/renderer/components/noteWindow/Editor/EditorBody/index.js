@@ -8,13 +8,12 @@ export default class EditorBody extends Component {
   }
 
   _saveData = () => {
-    // window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
     window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
   }
 
   // load text
   componentDidMount () {
-    window.addEventListener('beforeunload', this._saveData)
+    window.addEventListener('beforeunload', this._saveData) // fallback
 
     const prevText = window.localStorage.getItem(this.props.id)
     if (prevText) {
@@ -32,7 +31,7 @@ export default class EditorBody extends Component {
         <span
           className='textarea'
           role='textbox'
-          // onBlur={handleChange}
+          onInput={this._saveData}
           contentEditable
           ref={this.textareaRef}
         />
