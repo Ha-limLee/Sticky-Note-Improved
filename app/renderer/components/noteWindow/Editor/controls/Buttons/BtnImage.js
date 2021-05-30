@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ImageIcon } from '@primer/octicons-react'
-import { btnClassNameRaw } from '../config'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 export default class BtnHeading extends Component {
   clickHandler () {
@@ -29,7 +29,7 @@ export default class BtnHeading extends Component {
     const doClick = this.clickHandler
     const getImage = this.changeHandlerImage
     return (
-      <div className={btnClassNameRaw} onClick={doClick}>
+      <div className={BtnClassNameRaw} onClick={doClick}>
         <label htmlFor='fileInputField'>
           <input
             id='fileInputField'

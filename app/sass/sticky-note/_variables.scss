@@ -13,17 +13,29 @@ $btn_small_long_size: 60px;
   .btn-small-long-size-#{$i} { width: $btn_small_square_size * $i; }
 }
 
+/* Element: User Profile */
+$user_profile_size_small: 28px;
+$user_profile_size_medium: 40px;
+$user_profile_size_large: 200px;
+
+$user_login_frane_width: 100%;
+$user_login_frame_height: 75vh;
+$user_login_frame_radius: 7.5px;
+
 /* Commons */
 $red_normal: red;
 $gray_dark: #c4c4c4;
 $gray_dark_text: #656565;
 $gray_normal: #dcdcdc;
+$gray_normal_text: #858585;
 $gray_light: #f6f6f6;
 $is-danger: $red_normal;
 $color-transition: 0.1s ease-in-out;
-$normal-margin-top: 10px;
+$normal_margin_top: 10px;
 
 $radius__basic: 10px;
+
+$default_fonts: --apple-system, sans-serif;
 
 /* Mixins */
 @mixin align-middle {
@@ -53,5 +65,5 @@ $radius__basic: 10px;
 }
 
 @mixin normal-margin-top {
-  margin-top: $normal-margin-top;
+  margin-top: $normal_margin_top;
 }

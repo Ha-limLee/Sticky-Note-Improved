@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import UserProfile from '../UserProfile'
 
 export default class Header extends Component {
   constructor (props) {
@@ -19,9 +20,23 @@ export default class Header extends Component {
     const handleChangeTitle = (e) => {
       this.handleChangeTitle(e)
     }
+
     let pageTitle = <h1 className='page_title'>{this.props.title}</h1>
     if (this.props.editable === 'true') {
-      pageTitle = <input className='page_title editable' type='text' defaultValue={this.state.title} onChange={handleChangeTitle} value={this.state.titleValue} />
+      pageTitle = (
+        <input
+          className='page_title editable'
+          type='text'
+          defaultValue={this.state.title}
+          onChange={handleChangeTitle}
+          value={this.state.titleValue}
+        />
+      )
+    }
+
+    let userProfile = ''
+    if (this.props.enableProfile === 'true') {
+      userProfile = <UserProfile enableLink='true' type='small' />
     }
 
     return (
@@ -31,7 +46,7 @@ export default class Header extends Component {
           {pageTitle}
         </div>
         <div className='right user'>
-          <div className='userprofile' />
+          {userProfile}
         </div>
       </div>
     )

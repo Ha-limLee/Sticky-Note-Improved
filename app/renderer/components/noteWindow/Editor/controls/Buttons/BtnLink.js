@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   LinkIcon, CheckIcon
 } from '@primer/octicons-react'
-import { btnClassNameRaw } from '../config'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 export default class BtnLink extends Component {
   constructor (props) {
@@ -44,14 +44,14 @@ export default class BtnLink extends Component {
 
     return (
       <div className='btn wrapper'>
-        <div className={btnClassNameRaw} onClick={doOpen}>
+        <div className={BtnClassNameRaw} onClick={doOpen}>
           <LinkIcon size={16} />
         </div>
         <div id='linkInputField' className='input-field link hidden'>
           <label htmlFor='linkInputField'>
             <input type='text' name='linkInputField' onChange={doChange} />
           </label>
-          <div className={btnClassNameRaw} onClick={doLink}>
+          <div className={BtnClassNameRaw} onClick={doLink}>
             <CheckIcon size={16} />
           </div>
         </div>
