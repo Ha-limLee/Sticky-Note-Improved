@@ -3,9 +3,12 @@ const { contextBridge, ipcRenderer } = require('electron')
 contextBridge.exposeInMainWorld(
   'api',
   {
-    noteFrameClicked: (id) => ipcRenderer.send('NoteFrameClicked', id),
+    noteFrameClicked: (id, text) => {
+      console.log('send id: ', id, ' text: ', text)
+      ipcRenderer.send('NoteFrameClicked', id, text)
+    },
 
-    invoke: () => {
+    getNanoid: () => {
       return ipcRenderer.invoke('nanoid-ipc')
     }
   }

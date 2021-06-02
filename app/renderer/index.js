@@ -6,6 +6,10 @@ import NoteIndex from './components/lobby/NoteIndex'
 import UserProfileIndex from './components/lobby/UserProfileIndex'
 
 export default class App extends Component {
+  constructor (pros) {
+    super()
+  }
+
   render () {
     return (
       <div>

@@ -4,9 +4,9 @@ import UserProfile from '../UserProfile'
 
 export default class Header extends Component {
   constructor (props) {
-    super(props)
+    super()
     this.state = {
-      titleValue: 'Untitled Note'
+      titleValue: 'Sticky Note'
     }
   }
 
