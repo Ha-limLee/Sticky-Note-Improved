@@ -26,6 +26,7 @@ class HomeDisplay extends Component {
         <Header
           title='안녕하세요.'
           enableProfile='true'
+          enableHomeLink='true'
         />
         <NoteIndex />
       </div>
@@ -40,6 +41,7 @@ class ProfileDisplay extends Component {
         <Header
           title='Sticky Note 요약'
           enableProfile='false'
+          enableHomeLink='true'
         />
         <UserProfileIndex />
       </div>

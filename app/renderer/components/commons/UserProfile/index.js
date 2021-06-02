@@ -5,7 +5,7 @@ export default class UserProfile extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      userInformation: window.localStorage.getItem('userInformation')
+      userprofileImgPath: window.localStorage.getItem('userprofileImgPath')
     }
   }
 
@@ -14,7 +14,7 @@ export default class UserProfile extends Component {
     let profileStyle
     if (this.state.userInformation) {
       profileStyle = {
-        backgroundImage: 'url(' + this.state.userInformation.imgPath + ')'
+        backgroundImage: 'url(' + this.state.userprofileImgPath + ')'
       }
     }
 

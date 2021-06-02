@@ -3,7 +3,9 @@ import { HashRouter as BrowserRouter, Route, Link } from 'react-router-dom'
 import UserProfile from '../../commons/UserProfile'
 import {
   UserLoginSrc,
-  UserLoginDoneSrc
+  UserLoginDoneSrc,
+  UserEclassLoginSrc,
+  UserEClassSrc
 } from '../../../configs'
 import { getUserData } from '../../../../../parser/jnuportal'
 
@@ -28,18 +30,25 @@ class UserProfileDisplay extends Component {
   constructor (props) {
     super()
     this.state = {
-      userInformation: window.localStorage.getItem('userInformation')
+      userprofileExists: window.localStorage.getItem('userprofileExists'),
+      userprofileID: window.localStorage.getItem('userprofileID'),
+      userprofileName: window.localStorage.getItem('userprofileName')
     }
   }
 
+  doLogout () {
+    window.localStorage.clear()
+    window.location.reload()
+  }
+
   render () {
+    const doLogout = () => this.doLogout()
     let userName = <Link to='/user_login' className='link_component unknown_user'>비로그인 상태입니다.</Link>
     let userEmail = <Link to='/user_login' className='link_component unknown_user'><u>로그인하세요.</u></Link>
-    if (this.state.userInformation) {
-      userEmail = this.state.userInformation.id + '@jnu.ac.kr'
-      userName = this.state.userInformation.userName
+    if (this.state.userprofileExists) {
+      userEmail = <span>{this.state.userprofileID + '@jnu.ac.kr'}  <span className='link' onClick={doLogout}>[로그아웃]</span></span>
+      userName = this.state.userprofileName
     }
-
     return (
       <div>
         <div className='user_information'>
@@ -66,17 +75,19 @@ class UserLoginDisplay extends Component {
     super()
   }
 
-  
   componentDidMount () {
-    const webviewElement = document.getElementById('userlogin_display__webview')
-    webviewElement.addEventListener('dom-ready', () => {
-      console.log(webviewElement.getURL() === UserLoginDoneSrc)
+    const onTargetedPage = () => {
       if (webviewElement.getURL() === UserLoginDoneSrc) {
         const userData = getUserData()
+        webviewElement.src = UserEclassLoginSrc
+        window.location.href = '#/'
+        // webviewElement.removeEventListener('dom-ready', onTargetedPage)
       }
-    })
+    }
+
+    const webviewElement = document.getElementById('userlogin_display__webview')
+    webviewElement.addEventListener('dom-ready', onTargetedPage)
   }
-  
 
   render () {
     return (

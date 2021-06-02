@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import UserProfile from '../UserProfile'
 
 export default class Header extends Component {
@@ -21,7 +22,12 @@ export default class Header extends Component {
       this.handleChangeTitle(e)
     }
 
+    let appTitle = <p className='logo common'>Sticky Note</p>
     let pageTitle = <h1 className='page_title'>{this.props.title}</h1>
+    if (this.props.enableHomeLink === 'true') {
+      appTitle = <Link to='/'>{appTitle}</Link>
+      pageTitle = <Link to='/'>{pageTitle}</Link>
+    }
     if (this.props.editable === 'true') {
       pageTitle = (
         <input
@@ -42,7 +48,7 @@ export default class Header extends Component {
     return (
       <div className='header'>
         <div className='left'>
-          <p className='logo common'>Sticky Note</p>
+          {appTitle}
           {pageTitle}
         </div>
         <div className='right user'>

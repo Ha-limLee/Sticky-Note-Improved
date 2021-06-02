@@ -48,6 +48,11 @@
     transition: $color-transition;
   }
 
+  h1.page_title.editable
+  input[type="text"].page_title {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
   h1.page_title.editable:hover,
   h1.page_title.editable:focus,
   input[type="text"].page_title:hover,

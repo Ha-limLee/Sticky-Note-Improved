@@ -1,31 +1,44 @@
+import * as cheerio from 'cheerio'
 import {
-  UserLoginSrc,
   UserLoginDoneSrc,
   QuerySelectorName,
   QuerySelectorMajor,
-  REGEXStudentID,
-  ContentType,
-  LoginInputElementRequired,
-  REGEXLoginInputElement
+  REGEXStudentID
 } from './variables'
 
 function getUserData () {
+  // console.log('Called `getUserData`')
   const xhr = new XMLHttpRequest()
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === xhr.DONE) {
-      if (xhr.status === 200 || xhr.status === 201) {
-        console.log(xhr.responseText)
-        const InputElement = xhr.responseText.match(REGEXLoginInputElement)
-        if (!InputElement) return false // bug handle
-        console.log(InputElement)
-        xhr.open('POST', UserLoginDoneSrc)
-        xhr.setRequestHeader('Content-Type', ContentType)
-        xhr.send(JSON.stringify({ LoginInputElementRequired: 'hello' }))
-      }
-    }
-  }
   xhr.open('GET', UserLoginDoneSrc)
   xhr.send()
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const $ = cheerio.load(xhr.responseText)
+      // console.log($(QuerySelectorName).text())
+
+      let flag = false
+
+      const resID = xhr.responseText.match(REGEXStudentID).groups.stuid
+      if (resID) {
+        localStorage.setItem('userprofileID', resID)
+        flag = true
+      }
+
+      const resName = $(QuerySelectorName).text()
+      if (resName) {
+        localStorage.setItem('userprofileName', resName)
+        flag = true
+      }
+
+      const resMajor = $(QuerySelectorMajor).text()
+      if (resMajor) {
+        localStorage.setItem('userprofileMajor', resMajor)
+        flag = true
+      }
+
+      if (flag) localStorage.setItem('userprofileExists', true)
+    }
+  }
 }
 
 export { getUserData }
