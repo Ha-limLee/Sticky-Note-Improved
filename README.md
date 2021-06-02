@@ -28,7 +28,7 @@ npm run open # Start Application
 ```
 
 ## 프로토타입
-[![Figma](https://img.shields.io/badge/Open%20with%20Figma-black?logo=figma&logoColor=white))](https://www.figma.com/proto/5ZyfEqvnN36g2hPs7rle0u/Advanced-Sticky-Note?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
+[![Figma](https://img.shields.io/badge/Open%20with%20Figma-black?logo=figma&logoColor=white)](https://www.figma.com/proto/5ZyfEqvnN36g2hPs7rle0u/Advanced-Sticky-Note?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
 
 <details>
     <summary>(이전 버전 프로토타입 보기)</summary>
