@@ -3,15 +3,43 @@ import React, { Component } from 'react'
 export default class EditorBody extends Component {
   constructor (props) {
     super()
+    this.text = ''
+    this.textareaRef = React.createRef()
   }
 
-  // Todo: Content Editable 엘리먼트의 Place Holder 설정 방법?
+  _saveData = () => {
+    // Parsing error: Unexpected token =standard
+    // 연구 필요
+
+    // window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
+    window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
+  }
+
+  // load text
+  componentDidMount () {
+    window.addEventListener('beforeunload', this._saveData)
+
+    const prevText = window.localStorage.getItem(this.props.id)
+    if (prevText) {
+      this.setState({
+        text: prevText
+      })
+    }
+    this.textareaRef.current.innerHTML = prevText
+    console.log('in EditorBody', this.props.id)
+  }
+
   render () {
     return (
-      <div className='editor_body' contentEditable>
-        <div className='placeHolder'>
-          <p>안녕하세요, Sticky Note입니다. 이 문장을 지우고 메모를 시작하세요.</p>
-        </div>
+      <div className='editor_body'>
+        <span
+          className='textarea'
+          role='textbox'
+          // onBlur={handleChange}
+          contentEditable
+          ref={this.textareaRef}
+        />
+        {/* <button onClick={getText}>log</button> */}
       </div>
     )
   }

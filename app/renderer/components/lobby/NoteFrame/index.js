@@ -4,9 +4,15 @@ import { TrashIcon } from '@primer/octicons-react'
 class NoteFrame extends Component {
   constructor (props) {
     super()
+    this.pRef = new React.createRef()
+  }
+
+  componentDidUpdate () {
+    this.pRef.current.innerHTML = this.props.display
   }
 
   deleteThis () {
+    window.localStorage.removeItem(this.props.id)
     this.props.deleteCallBack()
   }
 
@@ -26,7 +32,7 @@ class NoteFrame extends Component {
           className='wrapper'
           onClick={this.props.onClick}
         >
-          <p className='contents summary'>{this.props.display}</p>
+          <p className='contents summary' ref={this.pRef} />
         </div>
       </div>
     )
@@ -56,11 +62,38 @@ class NoteBtn extends Component {
 class NoteSummary extends Component {
   constructor (props) {
     super()
+    this.state = {
+      text: ''
+    }
+  }
+  _onStorageChanged = () => {
+    const prevText = window.localStorage.getItem(this.props.id)
+
+    if (prevText && prevText != this.state.text) {
+      this.setState({
+        text: prevText
+      })
+    }
+  }
+
+  // load text from local
+  componentDidMount () {
+    window.addEventListener('storage', this._onStorageChanged)
+    const prevText = window.localStorage.getItem(this.props.id)
+
+    if (prevText) {
+      this.setState({
+        text: prevText
+      })
+    }
   }
 
   handleClick () {
     window.api.noteFrameClicked(this.props.id)
-    console.log(this.props.id)
+    console.log('NoteSummary clicked\n' +
+      '    id: ' + this.props.id + '\n' +
+      '  text: ' + this.state.text + '\n'
+    )
   }
 
   render () {
@@ -68,7 +101,7 @@ class NoteSummary extends Component {
     return (
       <div className='note_summary'>
         <NoteFrame
-          summary={this.props.display}
+          display={this.state.text}
           onClick={doClick}
           deleteCallBack={this.props.deleteCallBack}
           id={this.props.id}

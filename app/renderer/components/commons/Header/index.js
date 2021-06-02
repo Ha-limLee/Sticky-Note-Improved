@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export default class Header extends Component {
   constructor (props) {
-    super(props)
+    super()
     this.state = {
-      titleValue: 'Untitled Note'
+      titleValue: 'Sticky Note'
     }
   }
 
@@ -21,7 +21,7 @@ export default class Header extends Component {
     }
     let pageTitle = <h1 className='page_title'>{this.props.title}</h1>
     if (this.props.editable === 'true') {
-      pageTitle = <input className='page_title editable' type='text' defaultValue={this.state.title} onChange={handleChangeTitle} value={this.state.titleValue} />
+      pageTitle = <input className='page_title editable' type='text' defaultValue={this.props.title} onChange={handleChangeTitle} value={this.state.titleValue} />
     }
 
     return (
