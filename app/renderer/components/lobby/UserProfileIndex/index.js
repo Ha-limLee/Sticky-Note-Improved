@@ -5,7 +5,7 @@ import {
   UserLoginSrc,
   UserLoginDoneSrc
 } from '../../../configs'
-import Parser from '../../../../../parser/jnuportal'
+import { getUserData } from '../../../../../parser/jnuportal'
 
 export default class UserProfileIndex extends Component {
   constructor (props) {
@@ -66,15 +66,17 @@ class UserLoginDisplay extends Component {
     super()
   }
 
+  
   componentDidMount () {
     const webviewElement = document.getElementById('userlogin_display__webview')
     webviewElement.addEventListener('dom-ready', () => {
       console.log(webviewElement.getURL() === UserLoginDoneSrc)
       if (webviewElement.getURL() === UserLoginDoneSrc) {
-        const userData = Parser.getUserData()
+        const userData = getUserData()
       }
     })
   }
+  
 
   render () {
     return (
