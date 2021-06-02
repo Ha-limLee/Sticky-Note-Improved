@@ -8,6 +8,10 @@ $btn_small_square_size: 20px;
 $btn_small_square_radius: 5px;
 $btn_small_margin_size: 10px;
 $btn_small_padding_size: 5px;
+$btn_small_long_size: 60px;
+@for $i from 1 through 5 {
+  .btn-small-long-size-#{$i} { width: $btn_small_square_size * $i; }
+}
 
 /* Commons */
 $red_normal: red;

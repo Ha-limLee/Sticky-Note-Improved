@@ -31,6 +31,8 @@ app.on('ready', () => {
     console.log('in main ', id)
 
     noteWindow = createNoteWindow()
+    // 'noteWindow' is assigned a value but never used. (no-unused-vars)standard(no-unused-vars)
+
     // noteWindow가 rendering될 때, getNoteId 채널을 통해 noteId를 요청
     // -> cacheQueue에서 하나씩 빼서 준다
   })

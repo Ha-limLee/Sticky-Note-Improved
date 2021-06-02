@@ -8,6 +8,9 @@ export default class EditorBody extends Component {
   }
 
   _saveData = () => {
+    // Parsing error: Unexpected token =standard
+    // 연구 필요
+
     // window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
     window.localStorage.setItem(this.props.id, this.textareaRef.current.innerHTML)
   }
