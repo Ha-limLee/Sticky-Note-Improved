@@ -28,8 +28,9 @@
   .textarea {
     display: block;
     width: 100%;
-    overflow: hidden;
     height: auto;
+    min-height: 60vh;
+    overflow: hidden;
     border: none;
     resize: vertical;
     white-space: pre;

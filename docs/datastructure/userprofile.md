@@ -19,7 +19,7 @@ localStorage.getItem('userprofileName')
 ```
 사용자 이름입니다. 
 
-## userprofileImgPath
+## userprofileImgPath (미구현됨)
 ```js
 localStorage.getItem('userprofileImgPath')
 ```
