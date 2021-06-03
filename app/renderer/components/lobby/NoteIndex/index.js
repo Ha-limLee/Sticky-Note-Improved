@@ -20,6 +20,8 @@ export default class NoteIndex extends Component {
   // class 내에서 arrow function으로 지정하면 this가 이 class의 객체로 묶인다고 합니다.
   // see: https://stackoverflow.com/questions/50297676/react-binding-this-to-a-class-method
   _storeNote = () => {
+    // Parsing error: Unexpected token =standard
+    // 연구 필요
     const { numNotes, notes } = this.state
     window.localStorage.setItem('sticky-notes-app-data-num', numNotes)
 

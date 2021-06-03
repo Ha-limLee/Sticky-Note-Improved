@@ -3,9 +3,12 @@
 
   color: $gray_dark_text;
 
-  .editor_topmenu div {
+  .editor_topmenu {
     @include normal-margin-top;
+  }
 
+  .editor_topmenu div {
+    margin-top: 3px;
     margin-right: 3px;
   }
 
@@ -16,6 +19,10 @@
     padding: 7px;
     font-size: 13px;
     height: 70vh;
+  }
+
+  .attached_image {
+    max-width: 85vw;
   }
 
   .textarea {
@@ -31,5 +38,4 @@
     content: "Type to add a note...";
     color: gray;
   }
-  
 }
