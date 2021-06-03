@@ -3,8 +3,6 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const { ConfigWinMain } = require('../configs')
 
-console.log(ConfigWinMain)
-
 /**
  * createWindow는 mainWindow를 생성합니다.
  *
