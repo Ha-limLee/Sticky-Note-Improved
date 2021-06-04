@@ -69,11 +69,9 @@ class NoteSummary extends Component {
   _onStorageChanged = () => {
     const prevText = window.localStorage.getItem(this.props.id)
 
-    if (prevText && prevText != this.state.text) {
-      this.setState({
-        text: prevText
-      })
-    }
+    this.setState({
+      text: prevText
+    })
   }
 
   // load text from local
