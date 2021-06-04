@@ -1,3 +1,6 @@
+---
+tag: '수정 필요'
+---
 # API
 Sticky Note Improved 내부 API 명세
 
