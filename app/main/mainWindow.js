@@ -10,7 +10,8 @@ exports.createWindow = () => {
       preload: path.join(__dirname, '..', 'renderer', 'preloads', 'index.js'),
       nodeIntegration: true,
       contextIsolation: true,
-      enableRemoteModule: false
+      enableRemoteModule: false,
+      webviewTag: true
     }
   })
   mainWindow.loadURL('file://' + path.join(__dirname, '..', 'windows', 'index.html'))
