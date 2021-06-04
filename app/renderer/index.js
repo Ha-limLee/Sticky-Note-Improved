@@ -1,52 +1,58 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Header from './components/Header'
+import { HashRouter as BrowserRouter, Route } from 'react-router-dom'
+import Header from './components/commons/Header'
 import NoteIndex from './components/lobby/NoteIndex'
+import UserProfileIndex from './components/lobby/UserProfileIndex'
 
+/**
+ * App 컴포넌트는 Sticky Note를 구성하는 모든 컴포넌트의 최상위 컴포넌트입니다.
+ *
+ * @returns App: Component
+ */
 export default class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      numNotes: 0,      // 노트 수
-      createdCount: 0,  // 노트를 생성한 횟수
-      
-    // (key, value)를 저장하는 배열
-    // key := note의 key
-    // value := note 인스턴스
-      notes: new Map()
-    }
+  constructor (pros) {
+    super()
   }
 
   render () {
+    return (
+      <div>
+        <BrowserRouter>
+          <Route exact path='/' component={HomeDisplay} />
+          <Route exact path='/userprofile' component={ProfileDisplay} />
+          <Route exact path='/user_login' component={ProfileDisplay} />
+        </BrowserRouter>
+      </div>
+    )
+  }
+}
 
-    const deleteNote = (noteId) => {
-      if (this.state.numNotes > 0){
-        this.state.notes.delete(noteId)
-        this.setState({
-          numNotes: this.state.numNotes - 1,
-        })
-      }
-    }
-
-    const addNote = () => {
-      this.setState({
-        numNotes: this.state.numNotes + 1,
-        createdCount: this.state.createdCount + 1
-      })
-      let cnt = this.state.createdCount
-      this.state.notes.set(cnt, <NoteIndex key={cnt} id={cnt} deleteCallBack={deleteNote}/>)
-    }
-
+class HomeDisplay extends Component {
+  render () {
     return (
       <div>
         <Header
           title='안녕하세요.'
+          enableProfile='true'
+          enableHomeLink='true'
         />
-        <button onClick = {addNote}>
-          노트 추가
-        </button>
+        <NoteIndex />
+      </div>
+    )
+  }
+}
 
-        {Array.from(this.state.notes.values())}
+class ProfileDisplay extends Component {
+  render () {
+    return (
+      <div>
+        <Header
+          title='Sticky Note 요약'
+          enableProfile='false'
+          enableHomeLink='true'
+        />
+        <UserProfileIndex />
       </div>
     )
   }

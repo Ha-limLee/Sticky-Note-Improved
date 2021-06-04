@@ -1,0 +1,17 @@
+* {
+  outline: none;
+}
+
+html {
+  font-family: $default_fonts;
+  color: $gray_dark_text;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: $gray_dark_text;
+  text-decoration: none;
+}

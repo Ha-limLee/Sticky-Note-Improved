@@ -1,0 +1,41 @@
+.userprofile_index {
+  @include default-root-element;
+
+  align-items: center;
+
+  .user_information {
+    .userimage {
+      display: flex;
+      margin: 20px 0;
+
+        .wrapper {
+          margin: auto;
+      }
+    }
+    .usersummary {
+      .username {
+        color: $gray_dark_text;
+        font-size: 19px;
+      }
+      .useremail {
+        color: $gray_normal_text;
+        font-size: 15px;
+      }
+
+      /* When no one has logged in
+      .username .link_component.unknown_user a,
+      .useremail .link_component.unknown_user a {
+      }
+      */
+    }
+  }
+
+  .userlogin_display {
+    iframe, webview {
+      width: $user_login_frane_width;
+      height: $user_login_frame_height;
+      border: solid 1px $gray_dark;
+      border-radius: $user_login_frame_radius;
+    }
+  }
+}

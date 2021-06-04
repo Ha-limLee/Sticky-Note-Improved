@@ -1,0 +1,67 @@
+.btn {
+  @include align-middle;
+
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0);
+  transition: $color-transition;
+  cursor: pointer;
+
+  &.btn-square.btn-small {
+    padding: $btn_small_padding_size;
+    width: $btn_small_square_size;
+    height: $btn_small_square_size;
+    border-radius: $btn_small_square_radius;
+  }
+
+  &.btn-long.btn-small {
+    padding: $btn_small_padding_size;
+    height: $btn_small_square_size;
+    border-radius: $btn_small_square_radius;
+  }
+
+  &.btn-darker {
+    background-color: $gray_normal;
+  }
+
+  &.btn-normal:hover,
+  &.btn-normal:focus {
+    background-color: $gray_dark;
+    transition: $color-transition;
+  }
+
+  &.wrapper {
+    position: relative;
+
+    .input-field {
+      position: absolute;
+      padding: 10px;
+      top: 5px;
+      left: 30px;
+      border: 1px solid $gray_dark;
+      border-radius: 7px;
+      background-color: #fff;
+      z-index: 5;
+
+    }
+  }
+
+  &.btn-danger {
+    color: $gray_dark_text;
+  }
+
+  &.btn-danger:hover,
+  &.btn-danger:focus {
+    color: white;
+    background-color: $is-danger;
+    transition: $color-transition;
+  }
+
+  &.btn-outline {
+
+  }
+
+  &.btn-right-hover {
+    top: $btn_small_margin_size;
+    right: $btn_small_margin_size;
+  }
+}
