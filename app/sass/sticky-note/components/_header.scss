@@ -10,6 +10,9 @@
       margin-bottom: 0;
     }
   }
+  .right {
+    padding-right: 8px;
+  }
 
   .logo.common,
   h1.page_title,
@@ -23,9 +26,11 @@
     font: {
       size: $logo_size_common;
     }
+    text-decoration: none;
   }
 
-  h1.page_title, input[type="text"].page_title {
+  h1.page_title,
+  input[type="text"].page_title {
     margin: {
       top: 0.3em;
     }
@@ -35,11 +40,17 @@
     }
     border-radius: 4px;
     background-color: inherit;
+    color: $gray_dark_text;
     font: {
       size: $page_title_size_common;
       weight: bold;
     }
     transition: $color-transition;
+  }
+
+  h1.page_title.editable
+  input[type="text"].page_title {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   h1.page_title.editable:hover,
@@ -50,10 +61,7 @@
     transition: $color-transition;
   }
 
-  .userprofile {
-    width: 28px;
-    height: 28px;
-    border-radius: 14px;
-    background-color: $gray_normal;
+  a {
+    text-decoration: none;
   }
 }

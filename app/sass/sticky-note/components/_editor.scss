@@ -3,9 +3,12 @@
 
   color: $gray_dark_text;
 
-  .editor_topmenu div {
+  .editor_topmenu {
     @include normal-margin-top;
+  }
 
+  .editor_topmenu div {
+    margin-top: 3px;
     margin-right: 3px;
   }
 
@@ -16,5 +19,24 @@
     padding: 7px;
     font-size: 13px;
     height: 70vh;
+  }
+
+  .attached_image {
+    max-width: 85vw;
+  }
+
+  .textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+    overflow: hidden;
+    border: none;
+    resize: vertical;
+    white-space: pre;
+  }
+  .textarea[contenteditable]:empty::before {
+    content: "Type to add a note...";
+    color: gray;
   }
 }

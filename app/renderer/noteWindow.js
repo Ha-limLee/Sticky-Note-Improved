@@ -6,10 +6,19 @@ import Editor from './components/noteWindow/Editor'
 export default class App extends Component {
   constructor (props) {
     super()
+    this.id = window.api.getNoteId()
   }
 
   setTitle (title) {
     document.title = title
+  }
+
+  componentDidMount () {
+    console.log('in app', this.id)
+  }
+
+  componentWillUnmount () {
+    window.api.beforeUnmound('Does it work?')
   }
 
   render () {
@@ -23,7 +32,8 @@ export default class App extends Component {
           editable='true'
           onChange={onChangeHandler}
         />
-        <Editor />
+        <Editor id={this.id} />
+        {/* <button onClick={testHandler}>log id</button> */}
       </div>
     )
   }

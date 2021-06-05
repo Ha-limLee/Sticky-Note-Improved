@@ -1,23 +1,50 @@
 import React, { Component } from 'react'
 import { NoteBtn, NoteSummary } from '../NoteFrame'
 
+// let instance = null
+
 export default class NoteIndex extends Component {
   constructor (props) {
-    super(props)
+    super()
     this.state = {
       numNotes: 0, // 노트 수
 
       // (key, value)를 저장하는 배열
-      // key := note 삭제를 위한 key, NoteFrame의 key와 동일하다
-      // value := NoteFrame의 props
+      // key := note 삭제를 위한 key, NoteFrame의 id와 동일하다
+      // value := NoteFrame의 props(key, {id})
       notes: new Map()
     }
+  }
+
+  // 이 함수가 불릴 때, this를 잃는 경우가 있습니다.
+  // class 내에서 arrow function으로 지정하면 this가 이 class의 객체로 묶인다고 합니다.
+  // see: https://stackoverflow.com/questions/50297676/react-binding-this-to-a-class-method
+  _storeNote = () => {
+    // Parsing error: Unexpected token =standard
+    // 연구 필요
+    const { numNotes, notes } = this.state
+    window.localStorage.setItem('sticky-notes-app-data-num', numNotes)
+
+    function replacer (key, value) {
+      if (value instanceof Map) {
+        return {
+          dataType: 'Map',
+          value: Array.from(value.entries())
+        }
+      } else {
+        return value
+      }
+    }
+
+    window.localStorage.setItem('sticky-notes-app-data-id', JSON.stringify(notes, replacer))
   }
 
   /**
    * NoteIndex가 처음 렌더링된 후, local에서 데이터를 가져온다
    */
   componentDidMount () {
+    window.addEventListener('beforeunload', this._storeNote)
+    
     let prevNum = window.localStorage.getItem('sticky-notes-app-data-num')
     prevNum = Number(prevNum || 0)
 
@@ -33,11 +60,14 @@ export default class NoteIndex extends Component {
       }
       return value
     }
+
     let prevNotes = new Map()
-    const notesItem = window.localStorage.getItem('sticky-notes-app-data-notes')
+    const notesItem = window.localStorage.getItem('sticky-notes-app-data-id')
     if (notesItem) {
       prevNotes = JSON.parse(notesItem, reviver)
     }
+
+    console.log('refreshed?')
 
     this.setState({
       numNotes: prevNum,
@@ -45,29 +75,10 @@ export default class NoteIndex extends Component {
     })
   }
 
-  /**
-   * NoteIndex가 렌더링된 후, local에 데이터를 저장한다
-   */
-  componentDidUpdate () {
-    const { numNotes, notes } = this.state
-    window.localStorage.setItem('sticky-notes-app-data-num', numNotes)
-
-    function replacer (key, value) {
-      if (value instanceof Map) {
-        return {
-          dataType: 'Map',
-          value: Array.from(value.entries())
-        }
-      } else {
-        return value
-      }
-    }
-    window.localStorage.setItem('sticky-notes-app-data-notes', JSON.stringify(notes, replacer))
-  }
-
   deleteNote (noteId) {
     if (this.state.numNotes > 0) {
       this.state.notes.delete(noteId)
+
       this.setState({
         numNotes: this.state.numNotes - 1
       })
@@ -75,10 +86,10 @@ export default class NoteIndex extends Component {
   }
 
   addNote () {
-    window.api.invoke()
+    window.api.getNanoid()
       .then((resolve) => {
         console.log(resolve)
-        this.state.notes.set(resolve, { key: resolve })
+        this.state.notes.set(resolve, { id: resolve })
       })
       .then(() => {
         this.setState({
@@ -94,7 +105,7 @@ export default class NoteIndex extends Component {
   formNote () {
     const noteArray = Array.from(this.state.notes.values())
     return noteArray.map(
-      (val) => <NoteSummary key={val.key} id={val.key} deleteCallBack={this.deleteNote.bind(this)} />)
+      (val) => <NoteSummary key={val.id} id={val.id} deleteCallBack={this.deleteNote.bind(this)} />)
   }
 
   render () {
