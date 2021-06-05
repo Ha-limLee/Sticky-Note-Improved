@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BoldIcon } from '@primer/octicons-react'
-import { BtnClassNameRaw } from '../../../../../configs'
+import { BtnClassNameRaw } from '../../../../../configs/index'
 
 export default class BtnBold extends Component {
   clickHandler () {

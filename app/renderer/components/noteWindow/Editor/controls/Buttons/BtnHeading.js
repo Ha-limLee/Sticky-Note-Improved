@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HeadingIcon } from '@primer/octicons-react'
-import { BtnClassNameRaw } from '../../../../../configs'
+import { BtnClassNameRaw } from '../../../../../configs/index'
 
 export default class BtnHeading extends Component {
   clickHandler () {
