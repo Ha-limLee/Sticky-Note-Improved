@@ -22,13 +22,8 @@ export default class BtnLink extends Component {
     }
   }
 
-  clickHandlerOpen () {
-    this.changeInputFieldDisplay()
-  }
-
-  clickHandlerLink (e) {
+  clickHandlerLink () {
     document.execCommand('createLink', false, this.state.targetLink)
-    this.changeInputFieldDisplay()
   }
 
   changeHandlerLink (e) {
@@ -38,9 +33,16 @@ export default class BtnLink extends Component {
   }
 
   render () {
-    const doOpen = this.clickHandlerOpen
-    const doLink = (e) => this.clickHandlerLink
-    const doChange = (e) => this.changeHandlerLink
+    const doOpen = () => {
+      this.changeInputFieldDisplay()
+    }
+    const doLink = () => {
+      this.clickHandlerLink()
+      this.changeInputFieldDisplay()
+    }
+    const doChange = (e) => {
+      this.changeHandlerLink(e)
+    }
 
     return (
       <div className='btn wrapper'>
