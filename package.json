@@ -53,6 +53,7 @@
     "@primer/octicons": "^13.0.0",
     "@primer/octicons-react": "^13.0.0",
     "cheerio": "*",
+    "nanoid": "^3.1.23",
     "react-router-dom": "^5.2.0"
   }
 }
