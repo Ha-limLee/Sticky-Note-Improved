@@ -22,13 +22,13 @@ export default class BtnLink extends Component {
     }
   }
 
-  clickHandlerOpen () {
-    this.changeInputFieldDisplay()
-  }
-
-  clickHandlerLink (e) {
-    document.execCommand('createLink', false, this.state.targetLink)
-    this.changeInputFieldDisplay()
+  clickHandlerLink () {
+    const selectedText = document.getSelection().toString()
+    document.execCommand(
+      'insertHTML',
+      false,
+      '<a href=' + this.state.targetLink + ' onClick="window.api.openExternal(\'' + this.state.targetLink + '\')">' + selectedText + '</a>'
+    )
   }
 
   changeHandlerLink (e) {
@@ -38,9 +38,16 @@ export default class BtnLink extends Component {
   }
 
   render () {
-    const doOpen = this.clickHandlerOpen
-    const doLink = (e) => this.clickHandlerLink
-    const doChange = (e) => this.changeHandlerLink
+    const doOpen = () => {
+      this.changeInputFieldDisplay()
+    }
+    const doLink = () => {
+      this.clickHandlerLink()
+      this.changeInputFieldDisplay()
+    }
+    const doChange = (e) => {
+      this.changeHandlerLink(e)
+    }
 
     return (
       <div className='btn wrapper'>
@@ -49,7 +56,7 @@ export default class BtnLink extends Component {
         </div>
         <div id='linkInputField' className='input-field link hidden'>
           <label htmlFor='linkInputField'>
-            <input type='text' name='linkInputField' onChange={doChange} />
+            <input type='text' name='linkInputField' className='input-element' onChange={doChange} placeholder='https://' />
           </label>
           <div className={BtnClassNameRaw} onClick={doLink}>
             <CheckIcon size={16} />
