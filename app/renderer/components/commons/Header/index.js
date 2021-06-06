@@ -4,9 +4,14 @@ import UserProfile from '../UserProfile'
 
 export default class Header extends Component {
   constructor (props) {
-    super()
+    super(props)
+    let titleValue = 'Sticky Note'
+    if (this.props.id) {
+      const titleValueSaved = window.localStorage.getItem(this.props.id + '__title')
+      if (titleValueSaved) titleValue = titleValueSaved
+    }
     this.state = {
-      titleValue: 'Sticky Note'
+      titleValue: titleValue
     }
   }
 
