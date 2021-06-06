@@ -12,6 +12,8 @@ import {
   BtnUList
 } from '../Buttons'
 
+import { FontFamily } from '../SelectBoxes'
+
 export default class EditorTopMenu extends Component {
   constructor (props) {
     super()
@@ -33,7 +35,7 @@ export default class EditorTopMenu extends Component {
           <BtnUList />
         </div>
         <div className='wrapper'>
-          <div className='btn btn-long btn-small btn-normal'>Font Family</div>
+          <FontFamily id={this.props.id} />
         </div>
       </div>
     )
