@@ -23,7 +23,12 @@ export default class BtnLink extends Component {
   }
 
   clickHandlerLink () {
-    document.execCommand('createLink', false, this.state.targetLink)
+    const selectedText = document.getSelection().toString()
+    document.execCommand(
+      'insertHTML',
+      false,
+      '<a href=' + this.state.targetLink + ' onClick="window.api.openExternal(\'' + this.state.targetLink + '\')">' + selectedText + '</a>'
+    )
   }
 
   changeHandlerLink (e) {
