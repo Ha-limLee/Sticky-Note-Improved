@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require('electron')
+const { contextBridge, ipcRenderer, shell } = require('electron')
 
 contextBridge.exposeInMainWorld(
   'api',
@@ -8,9 +8,11 @@ contextBridge.exposeInMainWorld(
       console.log('in noteWindow', got)
       return got
     },
-
     editorBodyUnmount: () => {
       ipcRenderer.send('editorBodyUnmount', 'editorBodyUnmount')
+    },
+    openExternal: (url) => {
+      shell.openExternal(url)
     }
   }
 )
