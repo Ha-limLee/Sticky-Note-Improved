@@ -15,6 +15,7 @@ export default class Header extends Component {
       titleValue: e.target.value
     })
     document.title = this.state.titleValue
+    window.localStorage.setItem(this.props.id + '__title', this.state.titleValue)
   }
 
   render () {
