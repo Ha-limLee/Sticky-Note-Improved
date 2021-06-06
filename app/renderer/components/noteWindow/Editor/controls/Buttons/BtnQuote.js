@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { QuoteIcon } from '@primer/octicons-react'
-import { btnClassNameRaw } from '../config'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 export default class BtnQuote extends Component {
   clickHandler () {
@@ -10,7 +10,7 @@ export default class BtnQuote extends Component {
   render () {
     const doClick = this.clickHandler
     return (
-      <div className={btnClassNameRaw} onClick={doClick}>
+      <div className={BtnClassNameRaw} onClick={doClick}>
         <QuoteIcon size={16} />
       </div>
     )
