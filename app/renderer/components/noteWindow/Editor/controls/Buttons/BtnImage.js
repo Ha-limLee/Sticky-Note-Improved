@@ -3,25 +3,36 @@ import { ImageIcon } from '@primer/octicons-react'
 import { BtnClassNameRaw } from '../../../../../configs'
 
 export default class BtnHeading extends Component {
-  clickHandler () {
-    document.execCommand('formatBlock', false, '<h2>')
+  constructor (props) {
+    super()
+    this.fileInputRef = React.createRef()
   }
 
-  changeHandlerImage () {
-    const file = document.querySelector('input[type=file]').files[0]
-    const reader = new FileReader()
-    let dataURI
+  clickHandler = () => {
+    this.fileInputRef.current.change()
+  }
 
-    reader.addEventListener(
-      'load',
-      () => {
-        dataURI = reader.result
-        const img = document.createElement('img')
-        img.className = 'attached_image'
-        img.src = dataURI
-        document.querySelector('.editor_body .textarea').appendChild(img)
-      }, false
-    )
+  changeHandlerImage = () => {
+    const file = document.querySelector('input[type=file]').files[0]
+
+    const reader = new FileReader()
+
+    reader.onload = (e) => {
+      const elm = document.querySelector('.editor_body > .textarea')
+      const img = document.createElement('img')
+
+      img.className = 'attached_image'
+      img.src = e.target.result
+
+      elm.innerHTML = elm.innerHTML + img.outerHTML
+      const ev = document.createEvent('HTMLEvents')
+      ev.initEvent('input', true, false)
+      elm.dispatchEvent(ev)
+
+      // Allows to upload same file
+      this.fileInputRef.current.value = ''
+    }
+
     if (file) reader.readAsDataURL(file)
   }
 
@@ -29,7 +40,7 @@ export default class BtnHeading extends Component {
     const doClick = this.clickHandler
     const getImage = this.changeHandlerImage
     return (
-      <div className={BtnClassNameRaw} onClick={doClick}>
+      <div className={BtnClassNameRaw}>
         <label htmlFor='fileInputField'>
           <input
             id='fileInputField'
@@ -37,8 +48,9 @@ export default class BtnHeading extends Component {
             accept='image/*'
             type='file'
             onChange={getImage}
+            ref={this.fileInputRef}
           />
-          <ImageIcon size={16} />
+          <ImageIcon size={16} onClick={doClick}/>
         </label>
       </div>
     )
