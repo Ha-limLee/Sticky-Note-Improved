@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ListOrderedIcon, ListUnorderedIcon } from '@primer/octicons-react'
-import { btnClassNameRaw } from '../config'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 class BtnOList extends Component {
   clickHandler () {
@@ -10,7 +10,7 @@ class BtnOList extends Component {
   render () {
     const doClick = this.clickHandler
     return (
-      <div className={btnClassNameRaw} onClick={doClick}>
+      <div className={BtnClassNameRaw} onClick={doClick}>
         <ListOrderedIcon size={16} />
       </div>
     )
@@ -24,7 +24,7 @@ class BtnUList extends Component {
   render () {
     const doClick = this.clickHandler
     return (
-      <div className={btnClassNameRaw} onClick={doClick}>
+      <div className={BtnClassNameRaw} onClick={doClick}>
         <ListUnorderedIcon size={16} />
       </div>
     )
