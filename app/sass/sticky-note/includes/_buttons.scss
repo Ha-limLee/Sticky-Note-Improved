@@ -41,7 +41,12 @@
       border-radius: 7px;
       background-color: #fff;
       z-index: 5;
-
+    }
+    .input-element {
+      border: 1px solid $gray_dark;
+      border-radius: 7px;
+      padding: 10px;
+      max-width: 150px;
     }
   }
 

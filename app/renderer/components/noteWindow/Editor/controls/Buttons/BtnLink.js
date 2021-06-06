@@ -56,7 +56,7 @@ export default class BtnLink extends Component {
         </div>
         <div id='linkInputField' className='input-field link hidden'>
           <label htmlFor='linkInputField'>
-            <input type='text' name='linkInputField' onChange={doChange} />
+            <input type='text' name='linkInputField' className='input-element' onChange={doChange} placeholder='https://' />
           </label>
           <div className={BtnClassNameRaw} onClick={doLink}>
             <CheckIcon size={16} />
