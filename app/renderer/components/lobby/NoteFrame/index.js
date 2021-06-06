@@ -21,6 +21,12 @@ class NoteFrame extends Component {
       this.props.deleteCallBack(this.props.id)
     }
     const noteTitle = window.localStorage.getItem(this.props.id + '__title')
+
+    const fontName = window.localStorage.getItem(this.props.id + '__font')
+    if (fontName) {
+      const elm = document.querySelector('.note_frame > .wrapper')
+      elm.style.fontFamily = fontName
+    }
     return (
       <div className='note_frame'>
         <div
