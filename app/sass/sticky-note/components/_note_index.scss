@@ -9,10 +9,20 @@
     background-color: $gray_light;
     border-radius: $radius__basic;
     transition: 0.1s ease-in-out;
+    max-height: 150px;
+    overflow: hidden;
 
     .wrapper {
       min-height: 50px;
       padding: 10px;
+
+      .contents.title {
+        font-size: 1.1em;
+        margin: 5px 0;
+      }
+      .contents.summary {
+        font-size: 0.8em;
+      }
     }
 
     .btn {
@@ -29,7 +39,18 @@
     cursor: pointer;
   }
 
-  .note_btn .btn {
-    display: none;
+  .note_btn {
+    .btn {
+      display: none;
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+
+      .contents.summary {
+        margin: 0;
+      }
+    }
   }
 }

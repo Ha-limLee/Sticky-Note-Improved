@@ -31,6 +31,7 @@ export default class App extends Component {
           title='안녕하세요.'
           editable='true'
           onChange={onChangeHandler}
+          id={this.id}
         />
         <Editor id={this.id} />
         {/* <button onClick={testHandler}>log id</button> */}

@@ -20,6 +20,7 @@ class NoteFrame extends Component {
     const deleteBtnHandler = () => {
       this.props.deleteCallBack(this.props.id)
     }
+    const noteTitle = window.localStorage.getItem(this.props.id + '__title')
     return (
       <div className='note_frame'>
         <div
@@ -32,6 +33,7 @@ class NoteFrame extends Component {
           className='wrapper'
           onClick={this.props.onClick}
         >
+          <h2 className='contents title'>{noteTitle}</h2>
           <p className='contents summary' ref={this.pRef} />
         </div>
       </div>
