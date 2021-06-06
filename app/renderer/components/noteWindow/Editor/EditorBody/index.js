@@ -27,6 +27,14 @@ export default class EditorBody extends Component {
     }
     this.textareaRef.current.innerHTML = prevText
     console.log('in EditorBody', this.props.id)
+
+    // load font-family
+    const fontName = window.localStorage.getItem(this.props.id + '__font')
+    if (fontName) {
+      console.log('in EditorBody', fontName)
+      const elm = document.querySelector('.editor_body > .textarea')
+      elm.style.fontFamily = fontName
+    }
   }
 
   render () {
