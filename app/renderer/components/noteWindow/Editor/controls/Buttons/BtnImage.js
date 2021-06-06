@@ -19,7 +19,7 @@ export default class BtnHeading extends Component {
         const img = document.createElement('img')
         img.className = 'attached_image'
         img.src = dataURI
-        document.querySelector('.editor_body').appendChild(img)
+        document.querySelector('.editor_body .textarea').appendChild(img)
       }, false
     )
     if (file) reader.readAsDataURL(file)
