@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ListOrderedIcon, ListUnorderedIcon } from '@primer/octicons-react'
-import { BtnClassNameRaw } from '../../../../../configs/index'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 class BtnOList extends Component {
   clickHandler () {

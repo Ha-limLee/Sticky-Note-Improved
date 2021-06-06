@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "Advanced Sticky Note.",
   "main": "main.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
     "start": "webpack && electron .",
     "build": "webpack",
-    "open": "electron ."
+    "open": "electron .",
+    "compile:windows": "electron-builder --windows"
   },
   "repository": {
     "type": "git",
@@ -22,6 +20,14 @@
     "url": "https://github.com/Ha-limLee/Sticky-Note-Improved/issues"
   },
   "homepage": "https://github.com/Ha-limLee/Sticky-Note-Improved#readme",
+  "build": {
+    "productName": "Sticky Note Improved",
+    "appId": "com.github.Ha-limLee.stickynote-improved",
+    "files": [
+      "app/",
+      "main.js"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -33,6 +39,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^5.2.4",
     "electron": "^12.0.7",
+    "electron-builder": "^22.10.5",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -46,6 +53,7 @@
     "@primer/octicons": "^13.0.0",
     "@primer/octicons-react": "^13.0.0",
     "cheerio": "*",
+    "nanoid": "^3.1.23",
     "react-router-dom": "^5.2.0"
   }
 }

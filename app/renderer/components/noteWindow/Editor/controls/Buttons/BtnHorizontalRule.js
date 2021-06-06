@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HorizontalRuleIcon } from '@primer/octicons-react'
-import { BtnClassNameRaw } from '../../../../../configs/index'
+import { BtnClassNameRaw } from '../../../../../configs'
 
 export default class BtnHorizontalRule extends Component {
   clickHandler () {

@@ -20,7 +20,7 @@ npm install
 npm start # Build Frontend and Start Application
 ```
 
-npm 시작 스크립트는 코드 번들링과 애플리케이션을 모두 수행합니다.  
+npm 시작 스크립트는 코드 번들링과 애플리케이션 실행을 모두 수행합니다.  
 하지만 여타 요인으로 인해 두 작업 중 하나만 수행하려고 하는 경우, 아래와 같이 부분적으로 작업을 실행할 수 있습니다.
 
 ```bash
